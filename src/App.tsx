@@ -16,12 +16,12 @@ interface IApp {
 const App = (props: IApp) => {
   const { code, user, businessUnit } = props;
 
-  const { hasError, isLoading, isAuthenticated, errorCode } = useAppData(
+  const { hasError, isLoading, isAuthenticated, errorCode } = useAppData({
     portalCode,
     code,
-    user!,
+    user: user ?? ({} as IUser),
     businessUnit,
-  );
+  });
 
   if (isLoading) {
     return null;

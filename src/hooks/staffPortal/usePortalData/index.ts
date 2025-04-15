@@ -4,8 +4,10 @@ import { staffPortalByBusinessManager } from "@services/staffPortal/getStaffPort
 import { IStaffPortalByBusinessManager } from "@ptypes/staffPortal/IStaffPortalByBusinessManager";
 import { encrypt } from "@utils/crypto/encrypt";
 import { enviroment } from "@config/environment";
+import { IUsePortalData } from "@ptypes/hooks/staffPortal/IUsePortalData";
 
-const usePortalData = (portalCode: string | null) => {
+const usePortalData = (props: IUsePortalData) => {
+  const { portalIdentifier } = props;
   const [portalData, setPortalData] = useState<IStaffPortalByBusinessManager>(
     {} as IStaffPortalByBusinessManager,
   );
@@ -15,24 +17,25 @@ const usePortalData = (portalCode: string | null) => {
   useEffect(() => {
     const fetchPortalData = async () => {
       try {
-        if (!portalCode) {
+        if (!portalIdentifier) {
           setHasError(true);
           setErrorCode(1000);
           return;
         }
 
-        if (portalCode !== enviroment.PORTAL_CODE) {
+        if (portalIdentifier !== enviroment.PORTAL_CODE) {
           setHasError(true);
           setErrorCode(1002);
           return;
         }
-        const StaffPortalData = await staffPortalByBusinessManager(portalCode);
+        const StaffPortalData =
+          await staffPortalByBusinessManager(portalIdentifier);
         if (!StaffPortalData) {
           setHasError(true);
           setErrorCode(1001);
           return;
         }
-        const encryptedParamValue = encrypt(portalCode);
+        const encryptedParamValue = encrypt(portalIdentifier);
         localStorage.setItem("portalCode", encryptedParamValue);
         setPortalData(StaffPortalData[0]);
       } catch (error) {
@@ -43,7 +46,7 @@ const usePortalData = (portalCode: string | null) => {
     };
 
     fetchPortalData();
-  }, [portalCode]);
+  }, [portalIdentifier]);
 
   return { portalData, hasError, errorCode };
 };

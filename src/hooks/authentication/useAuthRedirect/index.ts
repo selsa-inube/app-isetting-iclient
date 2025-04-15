@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { IStaffPortalByBusinessManager } from "@ptypes/staffPortal/IStaffPortalByBusinessManager";
-import { IBusinessManagers } from "@ptypes/staffPortal/IBusinessManagers";
+import { IUseAuthRedirect } from "@ptypes/hooks/IUseAuthRedirect";
 
-const useAuthRedirect = (
-  portalPublicCode: IStaffPortalByBusinessManager,
-  businessManagersData: IBusinessManagers,
-  portalCode: string | null,
-) => {
+const useAuthRedirect = (props: IUseAuthRedirect) => {
+  const { portalPublicCode, businessManagersData, portalIdentifier } = props;
   const { loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
   const [hasRedirected, setHasRedirected] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -16,7 +12,7 @@ const useAuthRedirect = (
   useEffect(() => {
     if (hasRedirected) return;
 
-    if (portalPublicCode.abbreviatedName) {
+    if (portalPublicCode!.abbreviatedName) {
       if (businessManagersData && !isLoading && !isAuthenticated) {
         loginWithRedirect();
       } else if (isAuthenticated) {
@@ -36,7 +32,7 @@ const useAuthRedirect = (
     isAuthenticated,
     loginWithRedirect,
     hasRedirected,
-    portalCode,
+    portalIdentifier,
   ]);
 
   return { hasRedirected, hasError, isLoading, isAuthenticated, errorCode };

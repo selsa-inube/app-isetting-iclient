@@ -9,9 +9,9 @@ import { useBusinessManagers } from "@hooks/staffPortal/useBusinessManagers";
 const useValidatingLoginInformation = () => {
   const { user } = useAuth0();
 
-  const portalCode = decrypt(localStorage.getItem("portalCode") ?? "");
-  const { portalData } = usePortalData(portalCode);
-  const { businessManagersData } = useBusinessManagers(portalData);
+  const portalIdentifier = decrypt(localStorage.getItem("portalCode") ?? "");
+  const { portalData: portalPublicCode } = usePortalData({ portalIdentifier });
+  const { businessManagersData } = useBusinessManagers({ portalPublicCode });
   const [businessUnitSigla, setBusinessUnitSigla] = useState(
     localStorage.getItem("businessUnitSigla") ?? "",
   );
@@ -64,10 +64,10 @@ const useValidatingLoginInformation = () => {
       ...prev,
       portal: {
         ...prev.portal,
-        abbreviatedName: portalData?.abbreviatedName ?? "",
-        staffPortalCatalogId: portalData?.staffPortalId ?? "",
-        businessManagerId: portalData?.businessManagerId ?? "",
-        publicCode: portalData?.publicCode ?? "",
+        abbreviatedName: portalPublicCode?.abbreviatedName ?? "",
+        staffPortalCatalogId: portalPublicCode?.staffPortalId ?? "",
+        businessManagerId: portalPublicCode?.businessManagerId ?? "",
+        publicCode: portalPublicCode?.publicCode ?? "",
       },
       businessManager: {
         ...prev.businessManager,
@@ -77,7 +77,7 @@ const useValidatingLoginInformation = () => {
         urlLogo: businessManagersData.urlLogo ?? "",
       },
     }));
-  }, [businessManagersData, portalData, portalCode]);
+  }, [businessManagersData, portalPublicCode, portalIdentifier]);
 
   useEffect(() => {
     localStorage.setItem("businessUnitSigla", businessUnitSigla);

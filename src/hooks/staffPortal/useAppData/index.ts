@@ -2,16 +2,12 @@ import { useContext, useEffect } from "react";
 
 import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
 import { useAuthRedirect } from "@hooks/authentication/useAuthRedirect";
-import { IUser } from "@ptypes/staffPortal/IUser";
+import { IUseAppData } from "@ptypes/hooks/staffPortal/IUseAppData";
 import { useBusinessManagers } from "../useBusinessManagers";
 import { usePortalData } from "../usePortalData";
 
-const useAppData = (
-  portalCode: string | null,
-  code: string | undefined,
-  user: IUser,
-  businessUnit: string | undefined,
-) => {
+const useAppData = (props: IUseAppData) => {
+  const { portalCode: portalIdentifier, code, user, businessUnit } = props;
   const { setBusinessUnitSigla, setAppData } = useContext(AuthAndPortalData);
   const updateAppData = () => {
     if (code) {
@@ -45,22 +41,26 @@ const useAppData = (
 
   if (!code) {
     const {
-      portalData,
+      portalData: portalPublicCode,
       hasError: portalError,
       errorCode: errorCodePortal,
-    } = usePortalData(portalCode);
+    } = usePortalData({ portalIdentifier });
     const {
       businessManagersData,
       hasError: businessError,
       errorCode: errorCodeBusiness,
-    } = useBusinessManagers(portalData);
+    } = useBusinessManagers({ portalPublicCode });
 
     const {
       hasError: authError,
       isLoading: authLoading,
       isAuthenticated: authAuthenticated,
       errorCode: errorCodeAuth,
-    } = useAuthRedirect(portalData, businessManagersData, portalCode);
+    } = useAuthRedirect({
+      portalPublicCode,
+      businessManagersData,
+      portalIdentifier,
+    });
 
     hasError = portalError || businessError || authError;
     errorCode = errorCodePortal || errorCodeBusiness || errorCodeAuth;
