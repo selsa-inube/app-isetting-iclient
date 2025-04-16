@@ -5,6 +5,7 @@ import { tokens } from "@design/tokens";
 import { ComponentAppearance } from "@enum/appearances";
 import { errorCodes } from "@config/errors/errorCodes";
 import { errorLabels } from "@config/errors/errorLabels";
+import { IErrorPage } from "@ptypes/design/IErrorPage";
 import {
   StyledCompanyLogo,
   StyledContainer,
@@ -14,13 +15,6 @@ import {
   StyledList,
   StyledTextErrorContainer,
 } from "./styles";
-
-interface IErrorPage {
-  errorCode?: number;
-  heading?: string;
-  nameButton?: string;
-  onClick?: () => void;
-}
 
 const ErrorPage = (props: IErrorPage) => {
   const {
