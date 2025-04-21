@@ -34,8 +34,6 @@ const useBusinessUnits = (props: IUseBusinessUnits) => {
     const selectOption = businessUnits.find(
       (businessUnit0) => businessUnit0.abbreviatedName === event.target.value,
     );
-    console.log(event.target.value);
-    console.log({ selectOption, businessUnits });
     setSelectedBusinessUnit(selectOption);
   };
 
