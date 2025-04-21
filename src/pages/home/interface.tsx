@@ -1,5 +1,5 @@
 import { MdOutlineChevronRight, MdOutlineDoorFront } from "react-icons/md";
-import { Icon, useMediaQueries, Header } from "@inubekit/inubekit";
+import { Icon, useMediaQueries, Header, Text } from "@inubekit/inubekit";
 
 import { AppCard } from "@design/feedback/appCard";
 import { Title } from "@design/data/title";
@@ -7,7 +7,9 @@ import { BusinessUnitChange } from "@design/inputs/BusinessUnitChange";
 import { mainNavigation } from "@config/mainNavigation";
 import { userMenu } from "@config/menuMainConfiguration";
 import { IHomeUI } from "@ptypes/home/IHomeUI";
+import { ComponentAppearance } from "@enum/appearances";
 import { RenderLogo } from "@design/feedback/renderLogo";
+import { homeLabels } from "@config/home/homeLabels";
 import {
   StyledCollapse,
   StyledCollapseIcon,
@@ -68,7 +70,7 @@ const HomeUI = (props: IHomeUI) => {
               >
                 <Icon
                   icon={<MdOutlineChevronRight />}
-                  appearance="primary"
+                  appearance={ComponentAppearance.PRIMARY}
                   size="24px"
                   cursorHover
                 />
@@ -88,23 +90,27 @@ const HomeUI = (props: IHomeUI) => {
         <StyledContainerSection $isMobile={screenMobile}>
           <StyledTitle $isTablet={screenTablet}>
             <Title
-              title={`Bienvenid@, ${username}`}
-              description="Selecciona una opción para empezar a ajustar la configuración."
+              title={`${homeLabels.welcome} ${username}`}
+              description={homeLabels.description}
               icon={<MdOutlineDoorFront />}
               sizeTitle="large"
             />
           </StyledTitle>
           <StyledContainerCards $isTablet={screenTablet}>
-            {data?.map((card) => (
-              <AppCard
-                key={card.id}
-                label={card.publicCode}
-                description={card.description}
-                icon={card.icon}
-                url={card.url}
-                isLoading={loading}
-              />
-            ))}
+            {data && data?.length > 0 ? (
+              data?.map((card) => (
+                <AppCard
+                  key={card.id}
+                  label={card.publicCode}
+                  description={card.description}
+                  icon={card.icon}
+                  url={card.url}
+                  isLoading={loading}
+                />
+              ))
+            ) : (
+              <Text size="medium">{homeLabels.noData}</Text>
+            )}
           </StyledContainerCards>
         </StyledContainerSection>
         <StyledFooter $isMobile={screenMobile}>

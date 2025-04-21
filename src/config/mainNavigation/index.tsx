@@ -27,7 +27,7 @@ const mainNavigation = (optionsCards: ICardData[], location?: Location) => {
 
   return {
     nav: {
-      reactPortalId: "portals",
+      reactPortalId: "portal",
       title: "MENU",
       sections: [
         {
@@ -49,54 +49,3 @@ const mainNavigation = (optionsCards: ICardData[], location?: Location) => {
 };
 
 export { mainNavigation };
-
-// const navigation = {
-//   nav: {
-//     reactPortalId: "portal",
-//     title: "MENU",
-//     sections: [
-//       {
-//         subtitle: "Privilegios",
-//         links: [
-//           {
-//             path: "/privileges/positions",
-//             label: "Cargos Inube",
-//             icon: <MdOutlineStart />,
-//             id: "/positions",
-//           },
-//           {
-//             path: "/privileges/users",
-//             label: "Usuarios",
-//             id: "/users",
-//             icon: <MdOutlineBusinessCenter />,
-//           },
-//         ],
-//         isOpen: false,
-//         onClose: () => {},
-//         onToggle: () => {},
-//       },
-//     ],
-//     actions: [
-//       {
-//         id: "logout",
-//         label: "Cerrar sesión",
-//         icon: <MdLogout />,
-//         action: () => {
-//           localStorage.clear();
-//           logout({
-//             logoutParams: {
-//               returnTo: enviroment.REDIRECT_URI,
-//             },
-//           });
-//         },
-//       },
-//     ],
-//     footerLabel: "©2025 - Inube",
-//     displaySubtitles: true,
-//     collapse: true,
-//   },
-//   breakpoint: "700px",
-// };
-
-// return navigation;
-// };
