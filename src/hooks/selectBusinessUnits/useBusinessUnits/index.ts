@@ -72,12 +72,18 @@ const useBusinessUnits = (props: IUseBusinessUnits) => {
 
   const filteredBusinessUnits = filterBusinessUnits(businessUnits, search);
 
+  const hasManyBusinessUnits = businessUnits.length > 5;
+
+  const hasNoFilteredBusinessUnits = filteredBusinessUnits.length === 0;
+
   return {
     search,
     businessUnitLocal,
     screenMobile,
     screenTablet,
     selectedBusinessUnit,
+    hasManyBusinessUnits,
+    hasNoFilteredBusinessUnits,
     handleSearchChange,
     handleChange,
     handleSubmit,

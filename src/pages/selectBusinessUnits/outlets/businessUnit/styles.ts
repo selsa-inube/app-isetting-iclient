@@ -34,10 +34,6 @@ const StyledBusinessUnitsList = styled.div<IStyledBusinessUnitsList>`
   }
 `;
 
-const StyledNoResults = styled.div`
-  margin: ${tokens.spacing.s200} ${tokens.spacing.s0};
-`;
-
 const StyledBusinessUnitsItem = styled.li`
   width: 100%;
 `;
@@ -45,6 +41,5 @@ const StyledBusinessUnitsItem = styled.li`
 export {
   StyledBusinessUnits,
   StyledBusinessUnitsList,
-  StyledNoResults,
   StyledBusinessUnitsItem,
 };

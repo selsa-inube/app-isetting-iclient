@@ -12,6 +12,8 @@ const BusinessUnits = (props: IBusinessUnits) => {
     screenMobile,
     screenTablet,
     selectedBusinessUnit,
+    hasManyBusinessUnits,
+    hasNoFilteredBusinessUnits,
     handleSearchChange,
     handleChange,
     handleSubmit,
@@ -20,7 +22,6 @@ const BusinessUnits = (props: IBusinessUnits) => {
 
   return (
     <BusinessUnitsUI
-      businessUnits={businessUnits}
       search={search}
       businessUnit={businessUnitLocal}
       handleSearchChange={handleSearchChange}
@@ -32,6 +33,8 @@ const BusinessUnits = (props: IBusinessUnits) => {
       selectedBusinessUnit={
         selectedBusinessUnit ?? ({} as IBusinessUnitsPortalStaff)
       }
+      hasManyBusinessUnits={hasManyBusinessUnits}
+      hasNoFilteredBusinessUnits={hasNoFilteredBusinessUnits}
     />
   );
 };

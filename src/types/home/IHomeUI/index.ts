@@ -9,6 +9,12 @@ interface IHomeUI {
   collapse: boolean;
   collapseMenuRef: React.RefObject<HTMLDivElement>;
   selectedClient: string;
+  username: string;
+  screenMobile: boolean;
+  screenTablet: boolean;
+  screenTabletHeader: boolean;
+  dataExists: boolean;
+  hasMultipleBusinessUnits: boolean;
   handleLogoClick: (businessUnit: IBusinessUnitsPortalStaff) => void;
   setCollapse: (value: boolean) => void;
   loading: boolean;

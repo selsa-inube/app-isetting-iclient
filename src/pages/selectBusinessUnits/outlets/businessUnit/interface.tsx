@@ -14,13 +14,14 @@ import {
 
 const BusinessUnitsUI = (props: IBusinessUnitsUI) => {
   const {
-    businessUnits,
     search,
     businessUnit,
     screenMobile,
     screenTablet,
     filteredBusinessUnits,
     selectedBusinessUnit,
+    hasManyBusinessUnits,
+    hasNoFilteredBusinessUnits,
     handleSearchChange,
     handleBussinessUnitChange,
     handleSubmit,
@@ -36,7 +37,7 @@ const BusinessUnitsUI = (props: IBusinessUnitsUI) => {
       </Text>
       <form>
         <Stack direction="column" alignItems="center" gap={tokens.spacing.s300}>
-          {businessUnits.length > 5 && (
+          {hasManyBusinessUnits && (
             <Input
               placeholder={businessUnitLabels.search}
               type="search"
@@ -48,11 +49,9 @@ const BusinessUnitsUI = (props: IBusinessUnitsUI) => {
               iconBefore={<MdSearch size={22} />}
             />
           )}
-          {filteredBusinessUnits.length === 0 && (
-            <NoResultsMessage search={search} />
-          )}
+          {hasNoFilteredBusinessUnits && <NoResultsMessage search={search} />}
           <StyledBusinessUnitsList
-            $scroll={businessUnits.length > 5}
+            $scroll={hasManyBusinessUnits}
             $isMobile={screenMobile}
             $isTablet={screenTablet}
           >

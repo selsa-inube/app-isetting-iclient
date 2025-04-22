@@ -2,13 +2,15 @@ import { IBusinessUnitsPortalStaff } from "@ptypes/staffPortal/IBusinessUnitsPor
 import { IBusinessUnitstate } from "../IBusinessUnitstate";
 
 interface IBusinessUnitsUI {
-  businessUnits: IBusinessUnitsPortalStaff[];
   search: string;
   businessUnit: IBusinessUnitstate;
   screenMobile: boolean;
   screenTablet: boolean;
   filteredBusinessUnits: IBusinessUnitsPortalStaff[];
   selectedBusinessUnit: IBusinessUnitsPortalStaff;
+  hasManyBusinessUnits: boolean;
+  hasNoFilteredBusinessUnits: boolean;
+
   handleSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleBussinessUnitChange: (
     event: React.ChangeEvent<HTMLInputElement>,

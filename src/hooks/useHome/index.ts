@@ -1,3 +1,4 @@
+import { useMediaQueries } from "@inubekit/inubekit";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
 import { IBusinessUnitsPortalStaff } from "@ptypes/staffPortal/IBusinessUnitsPortalStaff";
@@ -38,6 +39,22 @@ const useHome = () => {
     setCollapse(false);
   };
 
+  const username = appData.user.userName.split(" ")[0];
+
+  const {
+    "(max-width: 532px)": screenMobile,
+    "(max-width: 805px)": screenTablet,
+    "(max-width: 944px)": screenTabletHeader,
+  }: Record<string, boolean> = useMediaQueries([
+    "(max-width: 532px)",
+    "(max-width: 805px)",
+    "(max-width: 944px)",
+  ]);
+
+  const hasMultipleBusinessUnits = businessUnitsToTheStaff.length > 1;
+
+  const dataExists = optionsCards && optionsCards?.length > 0;
+
   return {
     businessUnitChangeRef,
     businessUnitsToTheStaff,
@@ -47,6 +64,12 @@ const useHome = () => {
     optionsCards,
     loading,
     appData,
+    username,
+    screenMobile,
+    screenTablet,
+    screenTabletHeader,
+    hasMultipleBusinessUnits,
+    dataExists,
     setCollapse,
     handleLogoClick,
   };

@@ -12,6 +12,12 @@ function Home() {
     optionsCards,
     loading,
     appData,
+    username,
+    screenMobile,
+    screenTablet,
+    screenTabletHeader,
+    hasMultipleBusinessUnits,
+    dataExists,
     setCollapse,
     handleLogoClick,
   } = useHome();
@@ -28,6 +34,12 @@ function Home() {
       setCollapse={setCollapse}
       handleLogoClick={handleLogoClick}
       loading={loading}
+      username={username}
+      screenMobile={screenMobile}
+      screenTablet={screenTablet}
+      screenTabletHeader={screenTabletHeader}
+      hasMultipleBusinessUnits={hasMultipleBusinessUnits}
+      dataExists={dataExists}
     />
   );
 }

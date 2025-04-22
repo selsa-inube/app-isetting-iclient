@@ -1,12 +1,11 @@
-import { useContext } from "react";
-
 import { Home } from "@pages/home";
 import { SelectBusinessUnits } from "@pages/selectBusinessUnits";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { useLanding } from "@hooks/useLanding";
 
 const Landing = () => {
-  const { businessUnitSigla } = useContext(AuthAndPortalData);
-  return businessUnitSigla.length === 0 ? <SelectBusinessUnits /> : <Home />;
+  const { isBusinessUnitSiglaEmpty } = useLanding();
+
+  return isBusinessUnitSiglaEmpty ? <SelectBusinessUnits /> : <Home />;
 };
 
 export { Landing };

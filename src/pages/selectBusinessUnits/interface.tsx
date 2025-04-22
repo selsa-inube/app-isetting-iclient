@@ -1,13 +1,10 @@
 import { Outlet } from "react-router-dom";
-import { Stack, Text, Grid } from "@inubekit/inubekit";
+import { Stack, Text, Grid, inube } from "@inubekit/inubekit";
 import { ISelectBusinessUnitsUI } from "@ptypes/selectBusinessUnits/ISelectBusinessUnitsUI";
 import { tokens } from "@design/tokens";
 import { welcome } from "@config/businessUnit/welcome";
-import {
-  StyledWelcomeContainer,
-  StyledOutletContainer,
-  StyledImage,
-} from "./styles";
+import { BoxContainer } from "@design/layout/boxContainer";
+import { StyledImage } from "./styles";
 
 const SelectBusinessUnitsUI = (props: ISelectBusinessUnitsUI) => {
   const { appData, screenTablet, imageWidth } = props;
@@ -17,7 +14,13 @@ const SelectBusinessUnitsUI = (props: ISelectBusinessUnitsUI) => {
       templateColumns={screenTablet ? "1fr" : "repeat(2, 1fr)"}
       templateRows={screenTablet ? "minmax(150px, 30vh) 1fr" : "100vh"}
     >
-      <StyledWelcomeContainer>
+      <BoxContainer
+        backgroundColor={inube.palette.neutral.N30}
+        boxSizing="initial"
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+      >
         <Stack
           direction="column"
           justifyContent="center"
@@ -43,8 +46,14 @@ const SelectBusinessUnitsUI = (props: ISelectBusinessUnitsUI) => {
             width={imageWidth()}
           />
         </Stack>
-      </StyledWelcomeContainer>
-      <StyledOutletContainer>
+      </BoxContainer>
+      <BoxContainer
+        backgroundColor={inube.palette.neutral.N0}
+        boxSizing="initial"
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+      >
         <Stack
           alignItems="center"
           justifyContent="center"
@@ -57,7 +66,7 @@ const SelectBusinessUnitsUI = (props: ISelectBusinessUnitsUI) => {
         >
           <Outlet />
         </Stack>
-      </StyledOutletContainer>
+      </BoxContainer>
     </Grid>
   );
 };

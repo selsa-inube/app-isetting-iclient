@@ -1,5 +1,5 @@
 import { MdOutlineChevronRight, MdOutlineDoorFront } from "react-icons/md";
-import { Icon, useMediaQueries, Header, Text } from "@inubekit/inubekit";
+import { Icon, Header, Text } from "@inubekit/inubekit";
 
 import { AppCard } from "@design/feedback/appCard";
 import { Title } from "@design/data/title";
@@ -32,20 +32,15 @@ const HomeUI = (props: IHomeUI) => {
     collapseMenuRef,
     selectedClient,
     loading,
+    username,
+    screenMobile,
+    screenTablet,
+    screenTabletHeader,
+    hasMultipleBusinessUnits,
+    dataExists,
     setCollapse,
     handleLogoClick,
   } = props;
-  const username = appData.user.userName.split(" ")[0];
-
-  const {
-    "(max-width: 532px)": screenMobile,
-    "(max-width: 805px)": screenTablet,
-    "(max-width: 944px)": screenTabletHeader,
-  }: Record<string, boolean> = useMediaQueries([
-    "(max-width: 532px)",
-    "(max-width: 805px)",
-    "(max-width: 944px)",
-  ]);
 
   return (
     <>
@@ -60,7 +55,7 @@ const HomeUI = (props: IHomeUI) => {
             }}
             menu={userMenu}
           />
-          {businessUnitsToTheStaff.length > 1 && (
+          {hasMultipleBusinessUnits && (
             <>
               <StyledCollapseIcon
                 $collapse={collapse}
@@ -97,7 +92,7 @@ const HomeUI = (props: IHomeUI) => {
             />
           </StyledTitle>
           <StyledContainerCards $isTablet={screenTablet}>
-            {data && data?.length > 0 ? (
+            {dataExists ? (
               data?.map((card) => (
                 <AppCard
                   key={card.id}
