@@ -32,8 +32,8 @@ const ErrorPage = (props: IErrorPage) => {
   const matches = useMediaQueries(mediaQueries);
 
   const DetailsErrors = errorCodes[errorCode] ?? {
-    descriptionError: ["No se proporcionó información sobre el error."],
-    solutionError: ["Intenta nuevamente más tarde."],
+    descriptionError: [errorLabels.errorDefault],
+    solutionError: [errorLabels.solutionErrorDefault],
   };
 
   return (

@@ -1,8 +1,10 @@
+import { RouterProvider } from "react-router-dom";
 import { AuthAndPortalDataProvider } from "./context/authAndPortalDataProvider";
 import { ErrorPage } from "./design/layout/errorPage";
 import { useAppData } from "./hooks/staffPortal/useAppData";
 import { GlobalStyles } from "./styles/global";
 import { IUser } from "./types/staffPortal/IUser";
+import { mainNavigation } from "./routes/mainNavigation";
 
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
@@ -40,7 +42,7 @@ const App = (props: IApp) => {
       <GlobalStyles />
 
       <AuthAndPortalDataProvider>
-        <h1>Hello</h1>;
+        <RouterProvider router={mainNavigation} />
       </AuthAndPortalDataProvider>
     </>
   );

@@ -24,14 +24,16 @@ const useValidatingLoginInformation = () => {
 
   let businessUnitData: IBusinessUnitsPortalStaff =
     {} as IBusinessUnitsPortalStaff;
-  try {
-    businessUnitData = JSON.parse(
-      businessUnitSigla || "{}",
-    ) as IBusinessUnitsPortalStaff;
-  } catch (error) {
-    console.error("Error parsing businessUnitSigla:", error);
-  }
 
+  try {
+    if (businessUnitSigla && businessUnitSigla.trim() !== "") {
+      businessUnitData = JSON.parse(
+        businessUnitSigla,
+      ) as IBusinessUnitsPortalStaff;
+    }
+  } catch (error) {
+    console.error("Error parsing business unit data:", error);
+  }
   const [appData, setAppData] = useState<IAppData>({
     portal: {
       abbreviatedName: "",
