@@ -1,5 +1,5 @@
 import { Stack } from "@inubekit/inubekit";
-import { PaymentCycleCardGroup } from "@design/feedback/paymentCycleCardGroup";
+import { PaymentCycleCardGroup } from "@pages/payrollAgreement/tabs/paymentCycleCardGroup";
 import { IExtraordinaryPaymentCycles } from "@ptypes/payrollAgreement/payrollAgreementTab/IExtraordinaryPaymentCycles";
 import { StyledContainer } from "../styles";
 

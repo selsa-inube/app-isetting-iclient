@@ -8,12 +8,13 @@ import {
   titles,
   actionsConfig,
 } from "@config/payrollAgreement/payrollAgreementTab/assisted/ordinaryCyclesTable";
-import { AddCycleModal } from "@design/modals/addCycleModal";
+
 import { DecisionModal } from "@design/modals/decisionModal";
 import { IRegularPaymentCyclesFormUI } from "@ptypes/payrollAgreement/payrollAgreementTab/forms/IRegularPaymentCyclesFormUI";
 import { cyclespaymentLabels } from "@config/payrollAgreement/payrollAgreementTab/forms/cyclespaymentLabels";
 import { BoxContainer } from "@design/layout/boxContainer";
 import { StyledFormContent } from "./styles";
+import { AddCycleModal } from "../../addCycleModal";
 
 const RegularPaymentCyclesFormUI = (props: IRegularPaymentCyclesFormUI) => {
   const {

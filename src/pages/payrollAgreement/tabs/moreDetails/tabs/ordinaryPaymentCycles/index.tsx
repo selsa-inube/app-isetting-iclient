@@ -1,7 +1,7 @@
 import { Stack } from "@inubekit/inubekit";
 
-import { PaymentCycleCardGroup } from "@design/feedback/paymentCycleCardGroup";
 import { IOrdinaryPaymentCycles } from "@ptypes/payrollAgreement/IOrdinaryPaymentCycles";
+import { PaymentCycleCardGroup } from "@pages/payrollAgreement/tabs/paymentCycleCardGroup";
 
 const OrdinaryPaymentCycles = (props: IOrdinaryPaymentCycles) => {
   const { data, labelsPaymentCard } = props;

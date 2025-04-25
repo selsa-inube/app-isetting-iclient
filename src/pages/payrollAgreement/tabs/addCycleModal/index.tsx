@@ -15,8 +15,8 @@ import { ComponentAppearance } from "@enum/appearances";
 import { getFieldState } from "@utils/getFieldState";
 import { IAddCycleModal } from "@ptypes/design/IAddCycleModal";
 import { addCycleLabels } from "@config/payrollAgreement/payrollAgreementTab/generic/addCycleLabels";
+import { ModalWrapper } from "@design/modals/modalWrapper";
 import { StyledSelectConatiner } from "./styles";
-import { ModalWrapper } from "../modalWrapper";
 
 const AddCycleModal = (props: IAddCycleModal) => {
   const {
