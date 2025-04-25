@@ -1,21 +1,19 @@
 import { MdOutlineChevronRight, MdOutlineDoorFront } from "react-icons/md";
-import { Icon, Header, Text } from "@inubekit/inubekit";
+import { Icon, Header, Text, inube } from "@inubekit/inubekit";
 
 import { AppCard } from "@design/feedback/appCard";
 import { Title } from "@design/data/title";
 import { BusinessUnitChange } from "@design/inputs/BusinessUnitChange";
-import { mainNavigation } from "@config/mainNavigation";
 import { userMenu } from "@config/menuMainConfiguration";
 import { IHomeUI } from "@ptypes/home/IHomeUI";
 import { ComponentAppearance } from "@enum/appearances";
 import { RenderLogo } from "@design/feedback/renderLogo";
 import { homeLabels } from "@config/home/homeLabels";
+import { BoxContainer } from "@design/layout/boxContainer";
+import { tokens } from "@design/tokens";
 import {
   StyledCollapse,
   StyledCollapseIcon,
-  StyledContainer,
-  StyledContainerCards,
-  StyledContainerSection,
   StyledFooter,
   StyledHeaderContainer,
   StyledLogo,
@@ -37,6 +35,7 @@ const HomeUI = (props: IHomeUI) => {
     screenTablet,
     screenTabletHeader,
     hasMultipleBusinessUnits,
+    optionsHeader,
     dataExists,
     setCollapse,
     handleLogoClick,
@@ -44,10 +43,17 @@ const HomeUI = (props: IHomeUI) => {
 
   return (
     <>
-      <StyledContainer>
+      <BoxContainer
+        direction="column"
+        boxSizing="border-box"
+        padding={`${tokens.spacing.s0} ${tokens.spacing.s0} ${tokens.spacing.s500}`}
+        height="100vh"
+        overflowY="auto"
+        backgroundColor={inube.palette.neutral.N0}
+      >
         <StyledHeaderContainer>
           <Header
-            navigation={mainNavigation(data)}
+            navigation={optionsHeader}
             logoURL={<RenderLogo imgUrl={appData.businessUnit.urlLogo} />}
             user={{
               username: appData.user.userName,
@@ -82,7 +88,15 @@ const HomeUI = (props: IHomeUI) => {
             </>
           )}
         </StyledHeaderContainer>
-        <StyledContainerSection $isMobile={screenMobile}>
+        <BoxContainer
+          direction="column"
+          padding={
+            screenMobile ? `${tokens.spacing.s200}` : `${tokens.spacing.s0}`
+          }
+          gap={screenMobile ? `${tokens.spacing.s300}` : `${tokens.spacing.s0}`}
+          backgroundColor={inube.palette.neutral.N0}
+          boxSizing="initial"
+        >
           <StyledTitle $isTablet={screenTablet}>
             <Title
               title={`${homeLabels.welcome} ${username}`}
@@ -91,7 +105,19 @@ const HomeUI = (props: IHomeUI) => {
               sizeTitle="large"
             />
           </StyledTitle>
-          <StyledContainerCards $isTablet={screenTablet}>
+          <BoxContainer
+            direction="row"
+            boxSizing="border-box"
+            padding={
+              screenTablet
+                ? `${tokens.spacing.s0}`
+                : `${tokens.spacing.s0} ${tokens.spacing.s1400} ${tokens.spacing.s400} 170px`
+            }
+            justifyContent={screenTablet ? "center" : "flex-start"}
+            wrap="wrap"
+            gap={tokens.spacing.s400}
+            backgroundColor={inube.palette.neutral.N0}
+          >
             {dataExists ? (
               data?.map((card) => (
                 <AppCard
@@ -106,12 +132,12 @@ const HomeUI = (props: IHomeUI) => {
             ) : (
               <Text size="medium">{homeLabels.noData}</Text>
             )}
-          </StyledContainerCards>
-        </StyledContainerSection>
+          </BoxContainer>
+        </BoxContainer>
         <StyledFooter $isMobile={screenMobile}>
           <StyledLogo src={appData.businessManager.urlBrand} />
         </StyledFooter>
-      </StyledContainer>
+      </BoxContainer>
     </>
   );
 };

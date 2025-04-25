@@ -1,3 +1,4 @@
+import { IFullscreenNav } from "@inubekit/inubekit";
 import { IAppData } from "@ptypes/context/IAppData";
 import { IBusinessUnitsPortalStaff } from "@ptypes/staffPortal/IBusinessUnitsPortalStaff";
 import { ICardData } from "../ICardData";
@@ -14,6 +15,10 @@ interface IHomeUI {
   screenTablet: boolean;
   screenTabletHeader: boolean;
   dataExists: boolean;
+  optionsHeader: {
+    nav: IFullscreenNav;
+    breakpoint?: string;
+  };
   hasMultipleBusinessUnits: boolean;
   handleLogoClick: (businessUnit: IBusinessUnitsPortalStaff) => void;
   setCollapse: (value: boolean) => void;

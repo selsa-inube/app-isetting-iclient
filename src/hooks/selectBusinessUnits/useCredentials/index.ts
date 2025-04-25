@@ -1,9 +1,10 @@
 import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
-import { IBusinessUnitsPortalStaff } from "@ptypes/staffPortal/IBusinessUnitsPortalStaff";
+import { IUseCheckCredentials } from "@ptypes/hooks/credentials/IUseCheckCredentials";
 
-const useCheckCredentials = (businessUnits: IBusinessUnitsPortalStaff[]) => {
+const useCheckCredentials = (props: IUseCheckCredentials) => {
+  const { businessUnits } = props;
   const navigate = useNavigate();
   const { appData, setBusinessUnitSigla } = useContext(AuthAndPortalData);
 

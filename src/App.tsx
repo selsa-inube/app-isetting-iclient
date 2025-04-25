@@ -1,10 +1,12 @@
 import { RouterProvider } from "react-router-dom";
+import { FlagProvider } from "@inubekit/inubekit";
 import { AuthAndPortalDataProvider } from "./context/authAndPortalDataProvider";
 import { ErrorPage } from "./design/layout/errorPage";
 import { useAppData } from "./hooks/staffPortal/useAppData";
 import { GlobalStyles } from "./styles/global";
 import { IUser } from "./types/staffPortal/IUser";
 import { mainNavigation } from "./routes/mainNavigation";
+import { ChangeToRequestTabProvider } from "./context/changeToRequestTab";
 
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
@@ -40,10 +42,13 @@ const App = (props: IApp) => {
   return (
     <>
       <GlobalStyles />
-
-      <AuthAndPortalDataProvider>
-        <RouterProvider router={mainNavigation} />
-      </AuthAndPortalDataProvider>
+      <FlagProvider>
+        <AuthAndPortalDataProvider>
+          <ChangeToRequestTabProvider>
+            <RouterProvider router={mainNavigation} />
+          </ChangeToRequestTabProvider>
+        </AuthAndPortalDataProvider>
+      </FlagProvider>
     </>
   );
 };

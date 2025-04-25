@@ -1,4 +1,4 @@
-import { AuthAndPortalData } from "@src/context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
 import { useContext } from "react";
 
 const useLanding = () => {

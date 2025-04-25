@@ -1,0 +1,135 @@
+import { MdOutlineAdd } from "react-icons/md";
+import { Button, inube, Stack } from "@inubekit/inubekit";
+import { tokens } from "@design/tokens";
+import { Table } from "@design/data/table";
+import { ComponentAppearance } from "@enum/appearances";
+import {
+  breakPoints,
+  titles,
+  actionsConfig,
+} from "@config/payrollAgreement/payrollAgreementTab/assisted/extraordinaryCyclesTable";
+import { AddCycleModal } from "@design/modals/addCycleModal";
+import { cyclespaymentLabels } from "@config/payrollAgreement/payrollAgreementTab/forms/cyclespaymentLabels";
+import { IExtraordinaryPaymentCyclesFormUI } from "@ptypes/payrollAgreement/payrollAgreementTab/forms/IExtraordinaryPaymentCyclesFormUI";
+import { BoxContainer } from "@design/layout/boxContainer";
+import { StyledFormContent } from "../styles";
+
+const ExtraordinaryPaymentCyclesFormUI = (
+  props: IExtraordinaryPaymentCyclesFormUI,
+) => {
+  const {
+    formik,
+    loading,
+    entries,
+    showModal,
+    valuesEqual,
+    isDisabledButton,
+    isMobile,
+    typePaymentOptions,
+    monthOptions,
+    dayOptions,
+    numberDaysUntilCutOptions,
+    labelButtonNext,
+    labelButtonPrevious,
+    onChange,
+    onAddCycle,
+    onButtonClick,
+    onToggleModal,
+    onPreviousStep,
+    setEntryDeleted,
+  } = props;
+
+  return (
+    <BoxContainer
+      direction="column"
+      gap={tokens.spacing.s300}
+      minHeight="55vh"
+      backgroundColor={inube.palette.neutral.N0}
+      boxSizing="initial"
+    >
+      <StyledFormContent>
+        <Stack direction="column" gap={tokens.spacing.s300}>
+          <BoxContainer
+            borderColor={inube.palette.neutral.N40}
+            borderRadius={tokens.spacing.s100}
+            gap={tokens.spacing.s300}
+            width="auto"
+            padding={
+              isMobile ? `${tokens.spacing.s150}` : `${tokens.spacing.s300}`
+            }
+            backgroundColor={inube.palette.neutral.N0}
+            boxSizing="initial"
+          >
+            <Stack
+              direction="column"
+              width="100%"
+              gap={tokens.spacing.s250}
+              alignItems="end"
+            >
+              <Button
+                fullwidth={isMobile}
+                iconBefore={<MdOutlineAdd />}
+                onClick={onToggleModal}
+                appearance={ComponentAppearance.PRIMARY}
+              >
+                {cyclespaymentLabels.titlePaymentCycle}
+              </Button>
+
+              <Table
+                id="portal"
+                titles={titles}
+                entries={entries}
+                actions={actionsConfig(setEntryDeleted)}
+                breakpoints={breakPoints}
+                isLoading={loading}
+                columnWidths={[50, 12, 10, 14]}
+                withActionsTitles
+                emptyDataMessage={cyclespaymentLabels.emptyDataMessage}
+              />
+            </Stack>
+          </BoxContainer>
+        </Stack>
+      </StyledFormContent>
+      <Stack justifyContent="flex-end" gap={tokens.spacing.s250}>
+        <Button
+          fullwidth={isMobile}
+          onClick={onPreviousStep}
+          appearance={ComponentAppearance.GRAY}
+          variant="outlined"
+        >
+          {labelButtonPrevious}
+        </Button>
+
+        <Button
+          fullwidth={isMobile}
+          onClick={onButtonClick}
+          disabled={isDisabledButton}
+          loading={loading}
+          appearance={ComponentAppearance.PRIMARY}
+        >
+          {labelButtonNext}
+        </Button>
+      </Stack>
+      {showModal && (
+        <AddCycleModal
+          actionText={cyclespaymentLabels.actionText}
+          comparisonData={valuesEqual}
+          formik={formik}
+          isLoading={loading}
+          portalId="portal"
+          title={cyclespaymentLabels.addPaymentCycle}
+          isExtraordinary
+          typePaymentOptions={typePaymentOptions}
+          monthOptions={monthOptions}
+          dayOptions={dayOptions}
+          numberDaysUntilCutOptions={numberDaysUntilCutOptions}
+          onCloseModal={onToggleModal}
+          onClick={onAddCycle}
+          onChange={onChange}
+        />
+      )}
+    </BoxContainer>
+  );
+};
+
+export { ExtraordinaryPaymentCyclesFormUI };

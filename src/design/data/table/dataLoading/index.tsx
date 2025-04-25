@@ -1,0 +1,24 @@
+import { SkeletonLine, Td, Tr } from "@inubekit/inubekit";
+
+import { ActionsLoading } from "../actionsLoading";
+import { IDataLoading } from "@ptypes/design/IDataLoading";
+
+const DataLoading = (props: IDataLoading) => {
+  const { titleColumns, numberActions } = props;
+  const rowsLoading = [];
+  for (let rows = 0; rows < 4; rows++) {
+    rowsLoading.push(
+      <Tr key={rows}>
+        {titleColumns.map((title) => (
+          <Td key={`e-${title.id}`}>
+            <SkeletonLine animated />
+          </Td>
+        ))}
+        {ActionsLoading(numberActions)}
+      </Tr>,
+    );
+  }
+  return rowsLoading;
+};
+
+export { DataLoading };
