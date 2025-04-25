@@ -1,8 +1,7 @@
 import { MdCheck } from "react-icons/md";
 import { Stack, Icon, Divider } from "@inubekit/inubekit";
-
-import { IBusinessUnitsPortalStaff } from "@ptypes/staffPortal/IBusinessUnitsPortalStaff";
 import { tokens } from "@design/tokens";
+import { IBusinessUnitChange } from "@ptypes/design/IBusinessUnitChange";
 import { ComponentAppearance } from "@enum/appearances";
 import {
   StyledContainer,
@@ -11,12 +10,6 @@ import {
   StyledImg,
   StyledContainerOption,
 } from "./styles";
-
-interface IBusinessUnitChange {
-  businessUnits: IBusinessUnitsPortalStaff[];
-  selectedClient: string;
-  onLogoClick: (businessUnit: IBusinessUnitsPortalStaff) => void;
-}
 
 const BusinessUnitChange = (props: IBusinessUnitChange) => {
   const { businessUnits, selectedClient, onLogoClick } = props;

@@ -10,38 +10,11 @@ import {
   Thead,
   Tr,
 } from "@inubekit/inubekit";
-
-import { IAction } from "@ptypes/design/table/IAction";
-import { IEntry } from "@ptypes/design/table/IEntry";
-import { ITitle } from "@ptypes/design/table/ITitle";
+import { ITableUI } from "@ptypes/design/ITableUI";
 import { WidthColmnsData } from "./widthColumns";
 import { ShowActionTitle } from "./showActionTitle";
 import { ShowAction } from "./showAction";
 import { DataLoading } from "./dataLoading";
-
-interface ITableUI {
-  actions: IAction[];
-  entriesLength: number;
-  entries: IEntry[];
-  filteredEntries: IEntry[];
-  firstEntryInPage: number;
-  isLoading: boolean;
-  lastEntryInPage: number;
-  pageLength: number;
-  titles: ITitle[];
-  mobileTitle?: string;
-  widthPercentageTotalColumns?: number;
-  columnWidths?: number[];
-  goToEndPage: () => void;
-  goToFirstPage: () => void;
-  nextPage: () => void;
-  prevPage: () => void;
-  mediaActionOpen: boolean;
-  numberActions: number;
-  TitleColumns: ITitle[];
-  emptyDataMessage?: string;
-  withActionsTitles?: boolean;
-}
 
 const TableUI = (props: ITableUI) => {
   const {
