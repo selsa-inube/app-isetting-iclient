@@ -101,12 +101,14 @@ const useOrdinaryCyclesForm = (props: IUseOrdinaryCyclesForm) => {
   useEffect(() => {
     if (!formik.values.periodicity) {
       formik.setFieldValue("payday", "");
+      formik.setFieldValue("numberDaysUntilCut", "");
       setPaydayOptions([]);
       setNumberDaysUntilCutOptions([]);
     }
 
     if (formik.values.periodicity) {
       formik.setFieldValue("payday", "");
+      formik.setFieldValue("numberDaysUntilCut", "");
       const Payday = payDayOrdinaryOptions(formik.values.periodicity);
       setPaydayOptions(Payday);
 

@@ -11,6 +11,7 @@ import {
   Tr,
 } from "@inubekit/inubekit";
 import { ITableUI } from "@ptypes/design/ITableUI";
+import { ComponentAppearance } from "@enum/appearances";
 import { WidthColmnsData } from "./widthColumns";
 import { ShowActionTitle } from "./showActionTitle";
 import { ShowAction } from "./showAction";
@@ -110,7 +111,7 @@ const TableUI = (props: ITableUI) => {
                       <Text
                         type="label"
                         size="large"
-                        appearance="dark"
+                        appearance={ComponentAppearance.DARK}
                         ellipsis
                       >
                         No hay resultados que coincidan con la búsqueda.

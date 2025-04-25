@@ -1,21 +1,12 @@
-import {
-  Stack,
-  Text,
-  Divider,
-  useMediaQuery,
-  Tabs,
-  Grid,
-  inube,
-} from "@inubekit/inubekit";
+import { Stack, Text, Divider, Tabs, Grid, inube } from "@inubekit/inubekit";
 
 import { moreDetailsRequestModal } from "@config/payrollAgreement/requestsInProgressTab/details/moreDetailsRequestModal";
 import { tokens } from "@design/tokens";
-import { mediaQueryMobile } from "@config/environment";
 import { ComponentAppearance } from "@enum/appearances";
 import { BoxContainer } from "@design/layout/boxContainer";
 import { ModalWrapper } from "@design/modals/modalWrapper";
 import { IMoreDetails } from "@ptypes/payrollAgreement/requestInProgTab/IMoreDetails";
-import { IEntry } from "@ptypes/design/table/IEntry";
+import { useMoreDetails } from "@hooks/payrollAgreement/useMoreDetails";
 import { OrdinaryPaymentCycles } from "./tabs/ordinaryPaymentCycles";
 import { ExtraordinaryPaymentCycles } from "./tabs/extraordinaryPaymentCycles";
 
@@ -41,51 +32,28 @@ const MoreDetails = (props: IMoreDetails) => {
     onTabChange,
   } = props;
 
-  const isMobile = useMediaQuery(mediaQueryMobile);
-
-  const scroll =
-    smallScreenTab || Object.entries(filteredTabsConfig).length > 2
-      ? true
-      : false;
-
-  const hasData = (data?: IEntry[]) => data && data.length > 0;
-
-  const hasAnyPaymentData = [
+  const {
+    isMobile,
+    scroll,
+    hasAnyPaymentData,
+    showOrdinaryPayCycles,
+    showExtraordinaryPayCycles,
+    showOrdinaryIncluded,
+    showOrdinaryEliminated,
+    showExtraordinaryIncluded,
+    showExtraordinaryEliminated,
+  } = useMoreDetails({
+    smallScreenTab,
+    filteredTabsConfig,
+    detailsTabsConfig,
     ordinaryPaymentData,
+    ordinaryEliminatedData,
     extraordinaryPaymentData,
     ordinaryIncludedData,
-    ordinaryEliminatedData,
     extraordinaryIncludedData,
     extraordinaryEliminatedData,
-  ].some(hasData);
-
-  const showOrdinaryPayCycles =
-    ordinaryPaymentData && isSelected === detailsTabsConfig.ordinaryPayment?.id;
-
-  const showExtraordinaryPayCycles =
-    extraordinaryPaymentData &&
-    extraordinaryPaymentData.length > 0 &&
-    isSelected === detailsTabsConfig.extraordinaryPayment?.id;
-
-  const showOrdinaryIncluded =
-    ordinaryIncludedData &&
-    ordinaryIncludedData.length > 0 &&
-    isSelected === detailsTabsConfig.ordinaryPaymentIncluded?.id;
-
-  const showOrdinaryEliminated =
-    ordinaryEliminatedData &&
-    ordinaryEliminatedData.length > 0 &&
-    isSelected === detailsTabsConfig.ordinaryPaymentRemoved?.id;
-
-  const showExtraordinaryIncluded =
-    extraordinaryIncludedData &&
-    extraordinaryIncludedData.length > 0 &&
-    isSelected === detailsTabsConfig.extraordinaryPaymentIncluded?.id;
-
-  const showExtraordinaryEliminated =
-    extraordinaryEliminatedData &&
-    extraordinaryEliminatedData.length > 0 &&
-    isSelected === detailsTabsConfig.extraordinaryPaymentRemoved?.id;
+    isSelected,
+  });
 
   return (
     <ModalWrapper
@@ -176,38 +144,38 @@ const MoreDetails = (props: IMoreDetails) => {
               />
               {showOrdinaryPayCycles && (
                 <OrdinaryPaymentCycles
-                  data={ordinaryPaymentData}
+                  data={ordinaryPaymentData ?? []}
                   labelsPaymentCard={labelsPaymentCard}
                 />
               )}
               {showExtraordinaryPayCycles && (
                 <ExtraordinaryPaymentCycles
-                  data={extraordinaryPaymentData}
+                  data={extraordinaryPaymentData ?? []}
                   labelsPaymentCard={labelsPaymentCard}
                 />
               )}
 
               {showOrdinaryIncluded && (
                 <OrdinaryPaymentCycles
-                  data={ordinaryIncludedData}
+                  data={ordinaryIncludedData ?? []}
                   labelsPaymentCard={labelsPaymentCard}
                 />
               )}
               {showOrdinaryEliminated && (
                 <OrdinaryPaymentCycles
-                  data={ordinaryEliminatedData}
+                  data={ordinaryEliminatedData ?? []}
                   labelsPaymentCard={labelsPaymentCard}
                 />
               )}
               {showExtraordinaryIncluded && (
                 <ExtraordinaryPaymentCycles
-                  data={extraordinaryIncludedData}
+                  data={extraordinaryIncludedData ?? []}
                   labelsPaymentCard={labelsPaymentCard}
                 />
               )}
               {showExtraordinaryEliminated && (
                 <ExtraordinaryPaymentCycles
-                  data={extraordinaryEliminatedData}
+                  data={extraordinaryEliminatedData ?? []}
                   labelsPaymentCard={labelsPaymentCard}
                 />
               )}
