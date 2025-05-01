@@ -3,11 +3,13 @@ import { Stack, Text, Grid, inube } from "@inubekit/inubekit";
 import { ISelectBusinessUnitsUI } from "@ptypes/selectBusinessUnits/ISelectBusinessUnitsUI";
 import { tokens } from "@design/tokens";
 import { welcome } from "@config/businessUnit/welcome";
+import { useThemeData } from "@utils/theme";
 import { BoxContainer } from "@design/layout/boxContainer";
 import { StyledImage } from "./styles";
 
 const SelectBusinessUnitsUI = (props: ISelectBusinessUnitsUI) => {
   const { appData, screenTablet, imageWidth } = props;
+  const theme = useThemeData();
 
   return (
     <Grid
@@ -15,7 +17,9 @@ const SelectBusinessUnitsUI = (props: ISelectBusinessUnitsUI) => {
       templateRows={screenTablet ? "minmax(150px, 30vh) 1fr" : "100vh"}
     >
       <BoxContainer
-        backgroundColor={inube.palette.neutral.N30}
+        backgroundColor={
+          theme ? theme?.palette?.neutral?.N30 : inube.palette.neutral.N30
+        }
         boxSizing="initial"
         direction="column"
         justifyContent="center"
@@ -48,7 +52,9 @@ const SelectBusinessUnitsUI = (props: ISelectBusinessUnitsUI) => {
         </Stack>
       </BoxContainer>
       <BoxContainer
-        backgroundColor={inube.palette.neutral.N0}
+        backgroundColor={
+          theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+        }
         boxSizing="initial"
         direction="column"
         justifyContent="center"

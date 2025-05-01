@@ -5,7 +5,8 @@ import { Meta, StoryFn } from "@storybook/react";
 import { Button } from "@inubekit/inubekit";
 
 import { ComponentAppearance } from "@enum/appearances";
-import { DecisionModal, IDecisionModal } from "..";
+import { IDecisionModal } from "@ptypes/design/IDecisionModal";
+import { DecisionModal } from "..";
 
 const meta: Meta<typeof DecisionModal> = {
   title: "modals/DecisionModal",

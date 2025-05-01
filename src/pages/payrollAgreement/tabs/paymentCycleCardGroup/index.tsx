@@ -4,12 +4,14 @@ import { mediaQueryMobile } from "@config/environment";
 import { IPaymentCycleCardGroup } from "@ptypes/design/IPaymentCycleCardGroup";
 
 import { BoxContainer } from "@design/layout/boxContainer";
+import { useThemeData } from "@utils/theme";
 import { tokens } from "@design/tokens";
 import { PaymentCycleCard } from "./paymentCycleCard";
 
 const PaymentCycleCardGroup = (props: IPaymentCycleCardGroup) => {
   const { data, labelsPaymentCard } = props;
   const smallScreen = useMediaQuery(mediaQueryMobile);
+  const theme = useThemeData();
 
   return (
     <BoxContainer
@@ -21,7 +23,9 @@ const PaymentCycleCardGroup = (props: IPaymentCycleCardGroup) => {
       padding={tokens.spacing.s075}
       boxSizing="border-box"
       overflowY="auto"
-      backgroundColor={inube.palette.neutral.N0}
+      backgroundColor={
+        theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+      }
     >
       {data.map((entry: IEntry, index) => (
         <Stack key={index}>
@@ -37,4 +41,3 @@ const PaymentCycleCardGroup = (props: IPaymentCycleCardGroup) => {
 };
 
 export { PaymentCycleCardGroup };
-export type { IPaymentCycleCardGroup };

@@ -20,6 +20,9 @@ const RequestProcess = (props: IRequestProcess) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const hasData = saveData && saveData.requestStatus !== "";
 
+  const showRequestModal =
+    hasData && statusFlowAutomatic.includes(saveData.requestStatus);
+
   return (
     <Stack
       direction="column"
@@ -27,45 +30,43 @@ const RequestProcess = (props: IRequestProcess) => {
       justifyContent="center"
       alignContent="center"
     >
-      {hasData &&
-        (statusFlowAutomatic.includes(saveData.requestStatus) ? (
-          <RequestProcessModal
-            portalId={portalId}
-            title={descriptionRequestProcess.title}
-            description={descriptionRequestProcess.description}
-            appearance={ComponentAppearance.SUCCESS}
-            requestSteps={requestProcessSteps}
-            isMobile={isMobile}
-            sizeIcon="28px"
-          />
-        ) : (
-          <RequestStatusModal
-            portalId={portalId}
-            title={
-              descriptionRequestStatus(
-                saveData.responsible ?? "uno de nuestros funcionarios",
-              ).title
-            }
-            description={
-              descriptionRequestStatus(
-                saveData.responsible ?? "uno de nuestros funcionarios",
-              ).description
-            }
-            requestNumber={saveData.requestNumber}
-            onClick={onCloseRequestStatus}
-            onCloseModal={onCloseRequestStatus}
-            isLoading={false}
-            actionText={
-              descriptionRequestStatus(
-                saveData.responsible ?? "uno de nuestros funcionarios",
-              ).actionText
-            }
-            appearance={ComponentAppearance.PRIMARY}
-          />
-        ))}
+      {showRequestModal ? (
+        <RequestProcessModal
+          portalId={portalId}
+          title={descriptionRequestProcess.title}
+          description={descriptionRequestProcess.description}
+          appearance={ComponentAppearance.SUCCESS}
+          requestSteps={requestProcessSteps}
+          isMobile={isMobile}
+          sizeIcon="28px"
+        />
+      ) : (
+        <RequestStatusModal
+          portalId={portalId}
+          title={
+            descriptionRequestStatus(
+              saveData?.responsible ?? "uno de nuestros funcionarios",
+            ).title
+          }
+          description={
+            descriptionRequestStatus(
+              saveData?.responsible ?? "uno de nuestros funcionarios",
+            ).description
+          }
+          requestNumber={saveData?.requestNumber ?? ""}
+          onClick={onCloseRequestStatus}
+          onCloseModal={onCloseRequestStatus}
+          isLoading={false}
+          actionText={
+            descriptionRequestStatus(
+              saveData?.responsible ?? "uno de nuestros funcionarios",
+            ).actionText
+          }
+          appearance={ComponentAppearance.PRIMARY}
+        />
+      )}
     </Stack>
   );
 };
 
 export { RequestProcess };
-export type { IRequestProcess };

@@ -9,6 +9,7 @@ import { BoxContainer } from "@design/layout/boxContainer";
 import { DetailBox } from "@design/feedback/detailBox";
 import { IRequestsInProcess } from "@ptypes/payrollAgreement/requestInProgTab/IRequestsInProcess";
 import { IEntry } from "@ptypes/design/table/IEntry";
+import { useThemeData } from "@utils/theme";
 
 const RequestsInProcess = (props: IRequestsInProcess) => {
   const {
@@ -20,6 +21,8 @@ const RequestsInProcess = (props: IRequestsInProcess) => {
     onCloseModal,
     onClick,
   } = props;
+
+  const theme = useThemeData();
 
   return (
     <ModalWrapper
@@ -37,9 +40,13 @@ const RequestsInProcess = (props: IRequestsInProcess) => {
     >
       <BoxContainer
         direction="column"
-        backgroundColor={inube.palette.neutral.N0}
+        backgroundColor={
+          theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+        }
         borderRadius={tokens.spacing.s100}
-        borderColor={inube.palette.neutral.N40}
+        borderColor={
+          theme ? theme?.palette?.neutral?.N40 : inube.palette.neutral.N40
+        }
         boxSizing="border-box"
         width="100%"
         height={isMobile ? "400px" : "430px"}
@@ -70,7 +77,9 @@ const RequestsInProcess = (props: IRequestsInProcess) => {
           </Stack>
         </Stack>
         <BoxContainer
-          backgroundColor={inube.palette.neutral.N0}
+          backgroundColor={
+            theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+          }
           overflowY="auto"
           boxSizing="border-box"
           wrap="wrap"
@@ -87,11 +96,19 @@ const RequestsInProcess = (props: IRequestsInProcess) => {
                 field={field}
                 data={data}
                 id={id}
-                backgroundColor={inube.palette.neutral.N10}
+                backgroundColor={
+                  theme
+                    ? theme?.palette?.neutral?.N10
+                    : inube.palette.neutral.N10
+                }
                 borderRadius={tokens.spacing.s100}
                 padding={`${tokens.spacing.s075} ${tokens.spacing.s150}`}
                 width={isMobile ? "253px" : "240px"}
-                borderColor={inube.palette.neutral.N40}
+                borderColor={
+                  theme
+                    ? theme?.palette?.neutral?.N40
+                    : inube.palette.neutral.N40
+                }
                 ellipsis
               />
             ))}
@@ -132,4 +149,3 @@ const RequestsInProcess = (props: IRequestsInProcess) => {
 };
 
 export { RequestsInProcess };
-export type { IRequestsInProcess };

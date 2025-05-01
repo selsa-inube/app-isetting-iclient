@@ -8,7 +8,6 @@ const formatDateTable = (date: Date) => {
     timeZone: "UTC",
   };
   const dateString = date.toLocaleDateString("es-ES", options);
-
   const [day, month, year] = dateString.split(" ");
 
   return `${day}/${capitalizeText(month)}/${year}`;

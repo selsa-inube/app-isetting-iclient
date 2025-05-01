@@ -1,9 +1,9 @@
 import { AxiosRequestConfig } from "axios";
 
 import { getWithRetries } from "@services/core/getWithRetries";
-import { axiosInstance } from "@api/isaasQuery";
+import { isaasQueryAxiosInstance } from "@api/isaasQuery";
 import { ICity } from "@ptypes/hooks/ICity";
-import { mapCitiesToEntities } from "./mappers";
+import { mapCitiesToEntities } from "./mappers/mapCitiesToEntities";
 
 const getCitiesData = async (): Promise<ICity[]> => {
   const config: AxiosRequestConfig = {
@@ -12,7 +12,7 @@ const getCitiesData = async (): Promise<ICity[]> => {
     },
   };
   const data: ICity[] = await getWithRetries<ICity[]>(
-    axiosInstance,
+    isaasQueryAxiosInstance,
     `/cities-catalog`,
     config,
   );

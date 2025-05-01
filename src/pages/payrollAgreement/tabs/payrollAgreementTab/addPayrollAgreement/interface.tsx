@@ -11,6 +11,7 @@ import { RegularPaymentCyclesForm } from "@pages/payrollAgreement/tabs/forms/reg
 import { ExtraordinaryPaymentCyclesForm } from "@pages/payrollAgreement/tabs/forms/extraordinaryPaymentCycles";
 import { VerificationForm } from "@pages/payrollAgreement/tabs/forms/verificationPayrollAgreement";
 import { GeneralInformationPayrollForm } from "@pages/payrollAgreement/tabs/forms/generalInfoPayrollAgreement";
+import { addPayrollLabels } from "@config/payrollAgreement/payrollAgreementTab/assisted/addPayrollLabels";
 
 const AddPayrollAgreementUI = (props: IAddPayrollAgreementUI) => {
   const {
@@ -62,8 +63,8 @@ const AddPayrollAgreementUI = (props: IAddPayrollAgreementUI) => {
         <Stack gap={tokens.spacing.s300} direction="column">
           <Breadcrumbs crumbs={crumbsAddPayrollAgreement} />
           <Title
-            title="Agregar nómina de convenio"
-            description=" agrega nómina de convenio."
+            title={addPayrollLabels.title}
+            description={addPayrollLabels.description}
             sizeTitle="large"
             onClick={onOpenModal}
           />

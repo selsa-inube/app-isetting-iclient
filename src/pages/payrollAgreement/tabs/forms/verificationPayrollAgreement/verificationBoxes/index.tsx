@@ -1,10 +1,8 @@
 import { IVerificationBoxes } from "@ptypes/payrollAgreement/payrollAgreementTab/forms/IVerificationBoxes";
-import {
-  renderCompanyVerification,
-  renderExtraordinaryVerification,
-  renderGeneralinfoVerification,
-  renderRegularVerification,
-} from "./utils";
+import { RenderCompanyVerification } from "../companyVerification";
+import { RenderGeneralinfoVerification } from "../GeneralinfoVerification";
+import { RenderRegularVerification } from "../RegularVerification";
+import { RenderExtraordinaryVerification } from "../ExtraordinaryVerification";
 
 const VerificationBoxes = (props: IVerificationBoxes) => {
   const { updatedData, stepKey, typeRegularPayroll, isMobile } = props;
@@ -18,20 +16,30 @@ const VerificationBoxes = (props: IVerificationBoxes) => {
 
   return (
     <>
-      {stepKey === 1 &&
-        renderCompanyVerification(updatedData.company.values, isMobile)}
-      {stepKey === 2 &&
-        renderGeneralinfoVerification(
-          updatedData.generalInformation.values,
-          isMobile,
-        )}
-      {showOrdinaryCycles &&
-        renderRegularVerification(updatedData.ordinaryCycles.values, isMobile)}
-      {showExtraordinaryCycles &&
-        renderExtraordinaryVerification(
-          updatedData.extraordinaryCycles.values,
-          isMobile,
-        )}
+      {stepKey === 1 && (
+        <RenderCompanyVerification
+          values={updatedData.company.values}
+          isMobile={isMobile}
+        />
+      )}
+      {stepKey === 2 && (
+        <RenderGeneralinfoVerification
+          values={updatedData.generalInformation.values}
+          isMobile={isMobile}
+        />
+      )}
+      {showOrdinaryCycles && (
+        <RenderRegularVerification
+          values={updatedData.ordinaryCycles.values}
+          isMobile={isMobile}
+        />
+      )}
+      {showExtraordinaryCycles && (
+        <RenderExtraordinaryVerification
+          values={updatedData.extraordinaryCycles.values}
+          isMobile={isMobile}
+        />
+      )}
     </>
   );
 };

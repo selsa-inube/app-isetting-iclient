@@ -9,7 +9,12 @@ import { mainNavigation } from "@config/mainNavigation";
 import { IUseAppPage } from "@ptypes/hooks/IUseAppPage";
 
 const useAppPage = (props: IUseAppPage) => {
-  const { appData, businessUnitSigla, setBusinessUnitSigla } = props;
+  const {
+    appData,
+    businessUnitSigla,
+    setBusinessUnitSigla,
+    businessUnitsToTheStaff,
+  } = props;
   const [collapse, setCollapse] = useState(false);
   const collapseMenuRef = useRef<HTMLDivElement>(null);
   const businessUnitChangeRef = useRef<HTMLDivElement>(null);
@@ -45,6 +50,8 @@ const useAppPage = (props: IUseAppPage) => {
 
   const { optionsHeader, optionsNav } = mainNavigation(optionsCards, location);
 
+  const hasMultipleBusinessUnits = businessUnitsToTheStaff.length > 1;
+
   return {
     collapse,
     collapseMenuRef,
@@ -54,6 +61,7 @@ const useAppPage = (props: IUseAppPage) => {
     isTabletMain,
     optionsHeader,
     optionsNav,
+    hasMultipleBusinessUnits,
     setCollapse,
     handleLogoClick,
   };

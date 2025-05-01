@@ -47,19 +47,22 @@ const StyledTextErrorContainer = styled.div<IStyledTextErrorContainer>`
   gap: ${tokens.spacing.s300};
   padding: ${tokens.spacing.s250};
   border-radius: ${tokens.spacing.s100};
-  border: 2px solid ${inube.palette.neutral.N40};
+  border: ${({ theme }) =>
+    `2px solid  ${theme ? theme?.palette?.neutral.N40 : inube.palette.neutral.N40}`};
 `;
 
 const StyledList = styled.ul``;
 
 const StyledItem = styled.li`
-  color: ${inube.palette.neutral.N90};
+  color: ${({ theme }) =>
+    theme?.palette?.neutral.N90 ?? inube.palette.neutral.N90};
 `;
 
 const StyledDividerContainer = styled.div<IStyledDividerContainer>`
   width: ${({ $isTablet }) => ($isTablet ? "100%" : "0%")};
   height: ${({ $isTablet }) => ($isTablet ? "0%" : "100%")};
-  border: 1px dashed ${inube.palette.neutral.N40};
+  border: ${({ theme }) =>
+    `1px dashed ${theme ? theme?.palette?.neutral.N40 : inube.palette.neutral.N40}`};
   margin: 0 auto;
 `;
 

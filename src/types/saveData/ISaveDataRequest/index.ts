@@ -1,6 +1,8 @@
 interface ISaveDataRequest {
   applicationName: string;
   businessManagerCode: string;
+  businessManagerName: string;
+  businessUnitName: string;
   businessUnitCode: string;
   configurationRequestData: Record<string, unknown>;
   description: string;

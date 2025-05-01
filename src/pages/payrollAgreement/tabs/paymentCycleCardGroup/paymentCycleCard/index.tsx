@@ -13,22 +13,27 @@ import { mediaQueryMobile } from "@config/environment";
 import { ComponentAppearance } from "@enum/appearances";
 import { IPaymentCycleCard } from "@ptypes/design/IPaymentCycleCard";
 import { BoxContainer } from "@design/layout/boxContainer";
+import { useThemeData } from "@utils/theme";
 
 const PaymentCycleCard = (props: IPaymentCycleCard) => {
   const { data, numberCard, labels } = props;
   const isMobile = useMediaQuery(mediaQueryMobile);
+  const theme = useThemeData();
+  const isField = (field: { id: string }) => data[field.id];
 
   return (
     <BoxContainer
       direction="column"
-      backgroundColor={inube.palette.neutral.N0}
+      backgroundColor={
+        theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+      }
       width={isMobile ? "200px" : "290px"}
       height="282px"
       borderRadius={tokens.spacing.s100}
       padding={tokens.spacing.s200}
       gap={isMobile ? `${tokens.spacing.s050}` : `${tokens.spacing.s150}`}
       boxSizing="border-box"
-      boxShadow="2px 1px 6px 2px rgba(0, 0, 0, 0.15)"
+      boxShadow={`1px 1px 4px 2px ${theme ? theme?.palette?.neutral?.N40 : inube.palette.neutral.N40}`}
     >
       <Stack gap={isMobile ? tokens.spacing.s050 : tokens.spacing.s150}>
         <Icon
@@ -54,7 +59,7 @@ const PaymentCycleCard = (props: IPaymentCycleCard) => {
       >
         {labels.map(
           (field, id) =>
-            data[field.id] && (
+            isField({ id: field.id }) && (
               <Stack key={id} direction="column" gap={tokens.spacing.s050}>
                 <Text size="medium" type="label" weight="bold">
                   {field.titleName}
@@ -75,4 +80,3 @@ const PaymentCycleCard = (props: IPaymentCycleCard) => {
 };
 
 export { PaymentCycleCard };
-export type { IPaymentCycleCard };

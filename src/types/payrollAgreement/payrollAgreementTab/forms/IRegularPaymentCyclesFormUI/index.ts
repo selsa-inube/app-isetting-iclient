@@ -6,7 +6,6 @@ import { IEntry } from "@ptypes/design/table/IEntry";
 import { IOrdinaryCyclesEntry } from "../IOrdinaryCyclesEntry";
 
 interface IRegularPaymentCyclesFormUI {
-  editDataOption: boolean;
   entries: IEntry[];
   formik: FormikProps<IOrdinaryCyclesEntry>;
   infoModal: IMessageModal;
@@ -21,6 +20,7 @@ interface IRegularPaymentCyclesFormUI {
   columnWidths: number[];
   labelButtonPrevious: string;
   labelButtonNext: string;
+  disabledButtonNext: boolean;
   onToggleInfoModal: () => void;
   onAddCycle: () => void;
   onToggleModal: () => void;

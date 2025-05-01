@@ -12,6 +12,7 @@ import {
 import { payrollTabLabels } from "@config/payrollAgreement/payrollAgreementTab/generic/payrollTabLabels";
 import { IpayrollAgreementTabUI } from "@ptypes/payrollAgreement/payrollAgreementTab/IpayrollAgreementTabUI";
 import { BoxContainer } from "@design/layout/boxContainer";
+import { useThemeData } from "@utils/theme";
 
 const PayrollAgreementTabUI = (props: IpayrollAgreementTabUI) => {
   const {
@@ -19,16 +20,23 @@ const PayrollAgreementTabUI = (props: IpayrollAgreementTabUI) => {
     entries,
     loading,
     smallScreen,
+    columnWidths,
     setEntryDeleted,
     onSearchPayrollAgreement,
   } = props;
 
+  const theme = useThemeData();
+
   return (
     <BoxContainer
-      borderColor={inube.palette.neutral.N40}
+      borderColor={
+        theme ? theme?.palette?.neutral?.N40 : inube.palette.neutral.N40
+      }
       borderRadius={tokens.spacing.s100}
       padding={smallScreen ? `${tokens.spacing.s150}` : `${tokens.spacing.s0}`}
-      backgroundColor={inube.palette.neutral.N0}
+      backgroundColor={
+        theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+      }
       boxSizing="initial"
       overflowY="auto"
     >
@@ -90,7 +98,7 @@ const PayrollAgreementTabUI = (props: IpayrollAgreementTabUI) => {
             breakpoints={breakPoints}
             filter={searchPayrollAgreement}
             isLoading={loading}
-            columnWidths={smallScreen ? [60] : [80]}
+            columnWidths={columnWidths}
             pageLength={8}
             emptyDataMessage={payrollTabLabels.emptyDataMessage}
           />

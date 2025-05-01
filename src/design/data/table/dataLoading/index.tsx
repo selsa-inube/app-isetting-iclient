@@ -14,7 +14,7 @@ const DataLoading = (props: IDataLoading) => {
             <SkeletonLine animated />
           </Td>
         ))}
-        {ActionsLoading(numberActions)}
+        <ActionsLoading numberActions={numberActions} />
       </Tr>,
     );
   }

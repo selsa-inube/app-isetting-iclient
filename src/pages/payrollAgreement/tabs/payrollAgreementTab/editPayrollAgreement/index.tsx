@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useEditPayrollAgreement } from "@hooks/payrollAgreement/edit/useEditPayrollAgreement";
 import { useSavePayrollAgreement } from "@hooks/payrollAgreement/useSavePayrollAgreement";
 import { ISaveDataRequest } from "@ptypes/saveData/ISaveDataRequest";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { ISaveDataResponse } from "@ptypes/saveData/ISaveDataResponse";
 import { EditPayrollAgreementUI } from "./interface";
 
@@ -27,12 +27,15 @@ const EditPayrollAgreement = () => {
     typeRegularPayroll,
     regularPaymentCycles,
     extraordinaryPayment,
-    filteredTabsConfig,
     showDeletedAlertModal,
-    typePayroll,
     showGeneralInfPayrollForm,
     showRegularPaymentCyclesForm,
     showExtraPaymentCyclesForm,
+    filteredTabs,
+    title,
+    description,
+    actionText,
+    moreDetails,
     handleToggleDeletedAlertModal,
     setExtraordinaryPayment,
     setRegularPaymentCycles,
@@ -54,6 +57,9 @@ const EditPayrollAgreement = () => {
     requestSteps,
     loadingSendData,
     showRequestStatus,
+    titleRequest,
+    descriptionRequest,
+    actionTextRequest,
     handleCloseRequestStatus,
     handleClosePendingReqModal,
   } = useSavePayrollAgreement({
@@ -96,14 +102,20 @@ const EditPayrollAgreement = () => {
       extraordinaryPayment={extraordinaryPayment}
       setExtraordinaryPayment={setExtraordinaryPayment}
       setRegularPaymentCycles={setRegularPaymentCycles}
-      filteredTabsConfig={filteredTabsConfig}
       showDeletedAlertModal={showDeletedAlertModal}
       onToggleDeletedAlertModal={handleToggleDeletedAlertModal}
-      typePayroll={typePayroll}
       showGeneralInfPayrollForm={showGeneralInfPayrollForm}
       showRegularPaymentCyclesForm={showRegularPaymentCyclesForm}
       showExtraPaymentCyclesForm={showExtraPaymentCyclesForm}
       showRequestStatus={showRequestStatus}
+      filteredTabs={filteredTabs}
+      title={title}
+      description={description}
+      actionText={actionText}
+      moreDetails={moreDetails}
+      titleRequest={titleRequest}
+      descriptionRequest={descriptionRequest}
+      actionTextRequest={actionTextRequest}
     />
   );
 };

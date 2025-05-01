@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import { DeleteRecord } from "@design/feedback/DeleteRecord";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { ISaveDataRequest } from "@ptypes/saveData/ISaveDataRequest";
 import { ComponentAppearance } from "@enum/appearances";
 import { RequestStatusModal } from "@design/modals/requestStatusModal";

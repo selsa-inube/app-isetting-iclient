@@ -12,12 +12,14 @@ import {
 import { cyclespaymentLabels } from "@config/payrollAgreement/payrollAgreementTab/forms/cyclespaymentLabels";
 import { IExtraordinaryPaymentCyclesFormUI } from "@ptypes/payrollAgreement/payrollAgreementTab/forms/IExtraordinaryPaymentCyclesFormUI";
 import { BoxContainer } from "@design/layout/boxContainer";
+import { useThemeData } from "@utils/theme";
 import { StyledFormContent } from "../styles";
 import { AddCycleModal } from "../../addCycleModal";
 
 const ExtraordinaryPaymentCyclesFormUI = (
   props: IExtraordinaryPaymentCyclesFormUI,
 ) => {
+  const theme = useThemeData();
   const {
     formik,
     loading,
@@ -45,20 +47,26 @@ const ExtraordinaryPaymentCyclesFormUI = (
       direction="column"
       gap={tokens.spacing.s300}
       minHeight="55vh"
-      backgroundColor={inube.palette.neutral.N0}
+      backgroundColor={
+        theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+      }
       boxSizing="initial"
     >
       <StyledFormContent>
         <Stack direction="column" gap={tokens.spacing.s300}>
           <BoxContainer
-            borderColor={inube.palette.neutral.N40}
+            borderColor={
+              theme ? theme?.palette?.neutral?.N40 : inube.palette.neutral.N40
+            }
             borderRadius={tokens.spacing.s100}
             gap={tokens.spacing.s300}
             width="auto"
             padding={
               isMobile ? `${tokens.spacing.s150}` : `${tokens.spacing.s300}`
             }
-            backgroundColor={inube.palette.neutral.N0}
+            backgroundColor={
+              theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+            }
             boxSizing="initial"
           >
             <Stack

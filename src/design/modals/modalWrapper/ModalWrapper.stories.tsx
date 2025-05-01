@@ -2,7 +2,8 @@ import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Meta, StoryFn } from "@storybook/react";
 import { Button } from "@inubekit/inubekit";
-import { ModalWrapper, IModalWrapper } from ".";
+import { IModalWrapper } from "@ptypes/design/IModalWrapper";
+import { ModalWrapper } from ".";
 
 const meta: Meta<typeof ModalWrapper> = {
   title: "modals/ModalWrapper",

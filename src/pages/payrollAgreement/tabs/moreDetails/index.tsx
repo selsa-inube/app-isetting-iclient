@@ -6,11 +6,14 @@ import { ComponentAppearance } from "@enum/appearances";
 import { BoxContainer } from "@design/layout/boxContainer";
 import { ModalWrapper } from "@design/modals/modalWrapper";
 import { IMoreDetails } from "@ptypes/payrollAgreement/requestInProgTab/IMoreDetails";
+import { useThemeData } from "@utils/theme";
 import { useMoreDetails } from "@hooks/payrollAgreement/useMoreDetails";
 import { OrdinaryPaymentCycles } from "./tabs/ordinaryPaymentCycles";
 import { ExtraordinaryPaymentCycles } from "./tabs/extraordinaryPaymentCycles";
+import { ILabel } from "@src/types/ILabel";
 
 const MoreDetails = (props: IMoreDetails) => {
+  const theme = useThemeData();
   const {
     isSelected,
     abbreviatedName,
@@ -55,6 +58,8 @@ const MoreDetails = (props: IMoreDetails) => {
     isSelected,
   });
 
+  const isField = (field: { id: string }) => data[field.id as keyof ILabel];
+
   return (
     <ModalWrapper
       width={isMobile ? "300px" : "700px"}
@@ -71,12 +76,16 @@ const MoreDetails = (props: IMoreDetails) => {
       <BoxContainer
         gap={tokens.spacing.s100}
         direction="column"
-        borderColor={inube.palette.neutral.N40}
+        borderColor={
+          theme ? theme?.palette?.neutral?.N40 : inube.palette.neutral.N40
+        }
         borderRadius={tokens.spacing.s100}
         width="100%"
         maxHeight={isMobile ? "410px" : "auto"}
         padding={isMobile ? `${tokens.spacing.s150}` : `${tokens.spacing.s200}`}
-        backgroundColor={inube.palette.neutral.N0}
+        backgroundColor={
+          theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+        }
         boxSizing="border-box"
         overflowY="auto"
         overflowX="hidden"
@@ -104,7 +113,7 @@ const MoreDetails = (props: IMoreDetails) => {
         >
           {labelsDetails.map(
             (field, id) =>
-              data[field.id] && (
+              isField({ id: field.id }) && (
                 <BoxContainer
                   key={id}
                   direction="column"
@@ -113,7 +122,11 @@ const MoreDetails = (props: IMoreDetails) => {
                   borderRadius={tokens.spacing.s100}
                   padding={`${tokens.spacing.s075} ${tokens.spacing.s200}`}
                   boxSizing="border-box"
-                  backgroundColor={inube.palette.neutral.N10}
+                  backgroundColor={
+                    theme
+                      ? theme?.palette?.neutral?.N10
+                      : inube.palette.neutral.N10
+                  }
                 >
                   <Text size="medium" type="label" weight="bold">
                     {field.titleName}
@@ -188,4 +201,3 @@ const MoreDetails = (props: IMoreDetails) => {
 };
 
 export { MoreDetails };
-export type { IMoreDetails };

@@ -20,6 +20,8 @@ const useDeletePayroll = (props: IUseDeletePayroll) => {
     setSaveData({
       applicationName: "ifac",
       businessManagerCode: appData.businessManager.publicCode,
+      businessManagerName: appData.businessUnit.abbreviatedName,
+      businessUnitName: appData.businessUnit.abbreviatedName,
       businessUnitCode: appData.businessUnit.publicCode,
       description: "Solicitud de eliminación de una nomina de convenio",
       entityName: "PayrollAgreement",

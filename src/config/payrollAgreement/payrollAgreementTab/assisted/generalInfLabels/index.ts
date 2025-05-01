@@ -7,6 +7,10 @@ const generalInfLabels = {
   previous: "Anterior",
   next: "Siguiente",
   send: "Enviar",
+  placeholderNamePayroll: "Nombre de nómina de convenio",
+  placeholderTypePayroll: "Selecciona de la lista",
+  placeholderSourcesOfIncome: "Selecciona opciones",
+  placeholderDaysApplication: "Escribe o selecciona # de días",
 };
 
 export { generalInfLabels };

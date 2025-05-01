@@ -7,6 +7,7 @@ import { GlobalStyles } from "./styles/global";
 import { IUser } from "./types/staffPortal/IUser";
 import { mainNavigation } from "./routes/mainNavigation";
 import { ChangeToRequestTabProvider } from "./context/changeToRequestTab";
+import { ThemeProviderWrapper } from "./context/theme";
 
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
@@ -42,13 +43,15 @@ const App = (props: IApp) => {
   return (
     <>
       <GlobalStyles />
-      <FlagProvider>
-        <AuthAndPortalDataProvider>
-          <ChangeToRequestTabProvider>
-            <RouterProvider router={mainNavigation} />
-          </ChangeToRequestTabProvider>
-        </AuthAndPortalDataProvider>
-      </FlagProvider>
+      <ThemeProviderWrapper>
+        <FlagProvider>
+          <AuthAndPortalDataProvider>
+            <ChangeToRequestTabProvider>
+              <RouterProvider router={mainNavigation} />
+            </ChangeToRequestTabProvider>
+          </AuthAndPortalDataProvider>
+        </FlagProvider>
+      </ThemeProviderWrapper>
     </>
   );
 };

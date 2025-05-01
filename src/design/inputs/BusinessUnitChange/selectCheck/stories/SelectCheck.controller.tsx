@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { ISelectCheck, SelectCheck } from "..";
+import { ISelectCheck } from "@ptypes/design/ISelectCheck";
+import { SelectCheck } from "..";
 
 const ControllerSelectCheck = (props: ISelectCheck) => {
   const { options } = props;

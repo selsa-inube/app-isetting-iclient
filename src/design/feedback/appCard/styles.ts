@@ -20,14 +20,19 @@ const StyledAppCard = styled(Link)<IStyledAppCard>`
   justify-content: space-between;
   border-radius: ${tokens.spacing.s050};
   text-decoration: none;
-  color: ${inube.palette.neutral.N900};
-  border: 1px solid ${inube.palette.neutral.N30};
-  box-shadow: 3px 3px 5px 1px ${inube.palette.neutral.N30};
+  color: ${({ theme }) =>
+    theme?.palette?.neutral.N900 ?? inube.palette.neutral.N900};
+  border: ${({ theme }) =>
+    `1px solid ${theme ? theme?.palette?.neutral.N30 : inube.palette.neutral.N30}`};
+  box-shadow: ${({ theme }) =>
+    `3px 3px 5px 1px ${theme ? theme?.palette?.neutral.N30 : inube.palette.neutral.N30}`};
   cursor: pointer;
 
   &:hover {
-    color: ${inube.palette.neutral.N30};
-    background-color: ${inube.palette.neutral.N30};
+    color: ${({ theme }) =>
+      theme?.palette?.neutral.N30 ?? inube.palette.neutral.N30};
+    background-color: ${({ theme }) =>
+      theme?.palette?.neutral.N30 ?? inube.palette.neutral.N30};
     box-shadow: none;
   }
   ${({ $isMobile }) =>

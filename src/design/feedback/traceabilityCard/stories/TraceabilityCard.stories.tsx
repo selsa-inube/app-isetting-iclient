@@ -1,6 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import { Meta, StoryFn } from "@storybook/react";
-import { ITraceabilityCard, TraceabilityCard } from "..";
+import { ITraceabilityCard } from "@ptypes/design/ITraceabilityCard";
+import { TraceabilityCard } from "..";
 
 const meta: Meta<typeof TraceabilityCard> = {
   title: "feedback/TraceabilityCard",

@@ -12,7 +12,7 @@ import { addLeadingZero } from "@utils/addLeadingZero";
 import { courtDaysOrdinaryOptions } from "@utils/courtDaysOrdinary";
 import { payDayValues } from "@utils/payDayValues";
 import { useEnumerators } from "@hooks/useEnumerators";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { optionsFromEnumerators } from "@utils/optionsFromEnumerators";
 import { normalizeEnumTranslation } from "@utils/normalizeEnumTranslation";
 import { compareObjects } from "@utils/compareObjects";
@@ -200,6 +200,10 @@ const useOrdinaryCyclesForm = (props: IUseOrdinaryCyclesForm) => {
     ? cyclespaymentLabels.sendButton
     : cyclespaymentLabels.nextButton;
 
+  const disabledButtonNext = editDataOption
+    ? isDisabledButton && !loading
+    : entries.length === 0;
+
   return {
     formik,
     isDisabledButton,
@@ -214,6 +218,7 @@ const useOrdinaryCyclesForm = (props: IUseOrdinaryCyclesForm) => {
     columnWidths,
     labelButtonPrevious,
     labelButtonNext,
+    disabledButtonNext,
     onToggleInfoModal,
     handleChange,
     handleAddCycle,

@@ -22,6 +22,7 @@ const useDetailsRequestInProgress = (props: IUseDetailsRequestInProgress) => {
     id: data.id,
     request: data.useCaseName,
     responsable: "",
+    dateExecution: data.requestDate,
     payrollForDeductionAgreementType: normalizeEnumName(
       data.configurationRequestData.payrollForDeductionAgreementType,
     ),
@@ -46,6 +47,8 @@ const useDetailsRequestInProgress = (props: IUseDetailsRequestInProgress) => {
     payrollSpecialBenCyclesEliminated: [],
     severanceCyclesEliminated: [],
   };
+
+  console.log({ data });
 
   if (data.configurationRequestData.regularPaymentCycles) {
     normalizeData.regularCyclesIncluded =

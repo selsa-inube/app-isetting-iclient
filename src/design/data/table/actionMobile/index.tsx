@@ -77,4 +77,3 @@ const ActionMobile = (props: IActionMobile) => {
 };
 
 export { ActionMobile };
-export type { IActionMobile };

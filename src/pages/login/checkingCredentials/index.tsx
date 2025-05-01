@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { useCheckingCredentials } from "@hooks/authentication/useCheckingCredentials";
 import { ICheckingCredentials } from "@ptypes/home/ICheckingCredentials";
 import { CheckingCredentialsUI } from "./interface";

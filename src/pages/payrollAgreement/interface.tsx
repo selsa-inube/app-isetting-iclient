@@ -4,7 +4,6 @@ import { tokens } from "@design/tokens";
 import { Title } from "@design/data/title";
 import { crumbsPayrollAgreement } from "@config/payrollAgreement/navigation";
 import { IPayrollAgreementUI } from "@ptypes/payrollAgreement/IPayrollAgreementUI";
-import { payrollAgreementTabsConfig } from "@config/payrollAgreement/tabs";
 import { PayrollAgreementTab } from "./tabs/payrollAgreementTab";
 import { RequestsInProgressTab } from "./tabs/requestsInProgressTab";
 
@@ -16,6 +15,7 @@ const PayrollAgreementUI = (props: IPayrollAgreementUI) => {
     showRequestsInProgressTab,
     smallScreen,
     smallScreenTab,
+    payrollAgreementTabs,
     handleTabChange,
   } = props;
 
@@ -40,7 +40,7 @@ const PayrollAgreementUI = (props: IPayrollAgreementUI) => {
         </Stack>
         <Stack gap={tokens.spacing.s300} direction="column" width="100%">
           <Tabs
-            tabs={Object.values(payrollAgreementTabsConfig)}
+            tabs={payrollAgreementTabs}
             selectedTab={isSelected}
             onChange={handleTabChange}
             scroll={smallScreenTab ? true : false}

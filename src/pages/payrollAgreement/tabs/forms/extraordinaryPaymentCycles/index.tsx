@@ -86,4 +86,3 @@ const ExtraordinaryPaymentCyclesForm = forwardRef<
 ExtraordinaryPaymentCyclesForm.displayName = "ExtraordinaryPaymentCyclesForm";
 
 export { ExtraordinaryPaymentCyclesForm };
-export type { IExtraordinaryPaymentCyclesForm };

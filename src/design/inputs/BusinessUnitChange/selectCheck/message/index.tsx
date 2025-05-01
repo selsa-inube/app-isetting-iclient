@@ -1,7 +1,7 @@
 import { Icon, Stack, Text } from "@inubekit/inubekit";
 import { MdCheckCircle, MdOutlineError } from "react-icons/md";
 import { tokens } from "@design/tokens";
-import { ISelectCheckUI } from "../interface";
+import { ISelectCheckUI } from "@ptypes/design/ISelectCheckUI";
 
 const Message = (
   props: Pick<ISelectCheckUI, "disabled" | "status"> & { message?: string },

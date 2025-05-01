@@ -13,16 +13,16 @@ import { DecisionModal } from "@design/modals/decisionModal";
 import { IRegularPaymentCyclesFormUI } from "@ptypes/payrollAgreement/payrollAgreementTab/forms/IRegularPaymentCyclesFormUI";
 import { cyclespaymentLabels } from "@config/payrollAgreement/payrollAgreementTab/forms/cyclespaymentLabels";
 import { BoxContainer } from "@design/layout/boxContainer";
+import { useThemeData } from "@utils/theme";
 import { StyledFormContent } from "./styles";
 import { AddCycleModal } from "../../addCycleModal";
 
 const RegularPaymentCyclesFormUI = (props: IRegularPaymentCyclesFormUI) => {
   const {
-    editDataOption,
     entries,
     formik,
     infoModal,
-    isDisabledButton,
+    disabledButtonNext,
     loading,
     numberDaysUntilCutOptions,
     paydayOptions,
@@ -43,20 +43,28 @@ const RegularPaymentCyclesFormUI = (props: IRegularPaymentCyclesFormUI) => {
     onPreviousStep,
   } = props;
 
+  const theme = useThemeData();
+
   return (
     <BoxContainer
       direction="column"
       gap={tokens.spacing.s300}
       minHeight="55vh"
-      backgroundColor={inube.palette.neutral.N0}
+      backgroundColor={
+        theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+      }
       boxSizing="initial"
     >
       <StyledFormContent>
         <Stack direction="column" gap={tokens.spacing.s300}>
           <BoxContainer
-            backgroundColor={inube.palette.neutral.N0}
+            backgroundColor={
+              theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+            }
             boxSizing="initial"
-            borderColor={inube.palette.neutral.N40}
+            borderColor={
+              theme ? theme?.palette?.neutral?.N40 : inube.palette.neutral.N40
+            }
             borderRadius={tokens.spacing.s100}
             gap={tokens.spacing.s300}
             width="auto"
@@ -107,9 +115,7 @@ const RegularPaymentCyclesFormUI = (props: IRegularPaymentCyclesFormUI) => {
         <Button
           fullwidth={isMobile}
           onClick={onButtonClick}
-          disabled={
-            editDataOption ? isDisabledButton && !loading : entries.length === 0
-          }
+          disabled={disabledButtonNext}
           loading={loading}
           appearance={ComponentAppearance.PRIMARY}
         >

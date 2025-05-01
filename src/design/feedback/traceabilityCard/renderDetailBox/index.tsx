@@ -2,9 +2,11 @@ import { inube } from "@inubekit/inubekit";
 import { tokens } from "@design/tokens";
 import { IRenderDetailBox } from "@ptypes/design/IRenderDetailBox";
 import { DetailBox } from "../../detailBox";
+import { useThemeData } from "@src/utils/theme";
 
 const RenderDetailBox = (props: IRenderDetailBox) => {
   const { data, field, id, withTag, isMobile } = props;
+  const theme = useThemeData();
 
   return (
     <DetailBox
@@ -12,7 +14,9 @@ const RenderDetailBox = (props: IRenderDetailBox) => {
       field={field}
       data={data}
       id={id}
-      backgroundColor={inube.palette.neutral.N10}
+      backgroundColor={
+        theme ? theme?.palette?.neutral?.N10 : inube.palette.neutral.N10
+      }
       borderRadius={tokens.spacing.s100}
       padding={
         isMobile

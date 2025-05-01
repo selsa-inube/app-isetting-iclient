@@ -12,7 +12,7 @@ import { object } from "yup";
 import { validationRules } from "@validations/validationRules";
 import { validationMessages } from "@validations/validationMessages";
 import { useEnumerators } from "@hooks/useEnumerators";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { optionsFromEnumerators } from "@utils/optionsFromEnumerators";
 import { getDomainById } from "@mocks/domains/domainService.mocks";
 import { IUseGeneralInformationForm } from "@ptypes/hooks/IUseGeneralInformationForm";

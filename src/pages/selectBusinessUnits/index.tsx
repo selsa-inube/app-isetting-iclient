@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useSelectBusinessUnits } from "@hooks/selectBusinessUnits/useSelectBusinessUnits";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { SelectBusinessUnitsUI } from "./interface";
 
 const SelectBusinessUnits = () => {

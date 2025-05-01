@@ -4,7 +4,7 @@ import { useAddPayrollAgreement } from "@hooks/payrollAgreement/useAddPayrollAgr
 import { IOrdinaryCyclesEntry } from "@ptypes/payrollAgreement/payrollAgreementTab/forms/IOrdinaryCyclesEntry";
 import { useSavePayrollAgreement } from "@hooks/payrollAgreement/useSavePayrollAgreement";
 import { ISaveDataRequest } from "@ptypes/saveData/ISaveDataRequest";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { ISaveDataResponse } from "@ptypes/saveData/ISaveDataResponse";
 import { IServerDomain } from "@ptypes/IServerDomain";
 import { AddPayrollAgreementUI } from "./interface";

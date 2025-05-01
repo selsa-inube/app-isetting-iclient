@@ -1,18 +1,8 @@
 import { ICountry } from "@ptypes/hooks/ICountry";
-
-const mapCountriesToEntity = (data: ICountry): ICountry => {
-  const newData: ICountry = {
-    abbreviatedName: String(data.abbreviatedName),
-    countryCatalogId: String(data.countryCatalogId),
-    descriptionUse: String(data.descriptionUse),
-    publicCode: String(data.publicCode),
-  };
-
-  return newData;
-};
+import { mapCountriesToEntity } from "./mapCountriesToEntities";
 
 const mapCountriesToEntities = (enums: ICountry[]): ICountry[] => {
   return enums.map(mapCountriesToEntity);
 };
 
-export { mapCountriesToEntity, mapCountriesToEntities };
+export { mapCountriesToEntities };

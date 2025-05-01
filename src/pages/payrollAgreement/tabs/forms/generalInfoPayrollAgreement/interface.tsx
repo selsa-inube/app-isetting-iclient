@@ -21,6 +21,7 @@ import { tokens } from "@design/tokens";
 import { IGeneralInformationPayrollFormUI } from "@ptypes/payrollAgreement/payrollAgreementTab/forms/IGeneralInformationPayrollFormUI";
 import { SelectCheck } from "@design/inputs/BusinessUnitChange/selectCheck";
 import { generalInfLabels } from "@config/payrollAgreement/payrollAgreementTab/assisted/generalInfLabels";
+import { useThemeData } from "@utils/theme";
 import { StyledFormContent, StyledRow } from "./styles";
 
 const GeneralInformationPayrollFormUI = (
@@ -55,11 +56,15 @@ const GeneralInformationPayrollFormUI = (
     onPreviousStep,
   } = props;
 
+  const theme = useThemeData();
+
   return (
     <BoxContainer
       direction="column"
       gap={tokens.spacing.s250}
-      backgroundColor={inube.palette.neutral.N0}
+      backgroundColor={
+        theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+      }
       boxSizing="initial"
       minHeight="55vh"
     >
@@ -67,11 +72,15 @@ const GeneralInformationPayrollFormUI = (
         <form>
           <Stack direction="column">
             <BoxContainer
-              borderColor={inube.palette.neutral.N40}
+              borderColor={
+                theme ? theme?.palette?.neutral?.N40 : inube.palette.neutral.N40
+              }
               borderRadius={tokens.spacing.s100}
               width="100%"
               gap={tokens.spacing.s300}
-              backgroundColor={inube.palette.neutral.N0}
+              backgroundColor={
+                theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+              }
               boxSizing="border-box"
               padding={
                 isMobile ? `${tokens.spacing.s150}` : `${tokens.spacing.s300}`
@@ -114,7 +123,7 @@ const GeneralInformationPayrollFormUI = (
                     name="abbreviatedName"
                     id="abbreviatedName"
                     label={generalInfLabels.namPayroll}
-                    placeholder="Nombre de nómina de convenio"
+                    placeholder={generalInfLabels.placeholderNamePayroll}
                     type="text"
                     size="compact"
                     value={formik.values.abbreviatedName}
@@ -131,7 +140,7 @@ const GeneralInformationPayrollFormUI = (
                     id="typePayroll"
                     name="typePayroll"
                     label={generalInfLabels.typePayroll}
-                    placeholder="Selecciónalo de la lista"
+                    placeholder={generalInfLabels.placeholderTypePayroll}
                     onChange={onChangeSelect}
                     options={typePayrollOptions}
                     size="compact"
@@ -146,7 +155,7 @@ const GeneralInformationPayrollFormUI = (
                   label={generalInfLabels.sourcesOfIncome}
                   name="sourcesOfIncome"
                   id="sourcesOfIncome"
-                  placeholder="Selecciona opciones"
+                  placeholder={generalInfLabels.placeholderSourcesOfIncome}
                   status={getFieldState(formik, "sourcesOfIncome")}
                   message={formik.errors.sourcesOfIncome}
                   invalid={formik.errors.sourcesOfIncome ? true : false}
@@ -186,7 +195,7 @@ const GeneralInformationPayrollFormUI = (
                     label=""
                     name="applicationDaysPayroll"
                     id="applicationDaysPayroll"
-                    placeholder="Escribe o selecciona # de días"
+                    placeholder={generalInfLabels.placeholderDaysApplication}
                     value={autosuggestValue}
                     onChange={onChangeAutosuggest}
                     options={getDomainById("daysForApplication")}

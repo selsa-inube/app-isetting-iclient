@@ -64,4 +64,3 @@ const RequestStatusModal = (props: IRequestStatusModal) => {
 };
 
 export { RequestStatusModal };
-export type { IRequestStatusModal };

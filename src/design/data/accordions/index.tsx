@@ -7,6 +7,7 @@ import { BoxContainer } from "@design/layout/boxContainer";
 import { tokens } from "@design/tokens";
 import { IAccordion } from "@ptypes/design/IAccordion";
 import { StyledHead } from "./styles";
+import { useThemeData } from "@utils/theme";
 
 const Accordion = (props: IAccordion) => {
   const { title, defaultOpen = true, children } = props;
@@ -18,6 +19,8 @@ const Accordion = (props: IAccordion) => {
   };
   const showIcon = isOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />;
 
+  const theme = useThemeData();
+
   return (
     <BoxContainer
       padding={`${tokens.spacing.s150} ${tokens.spacing.s100}`}
@@ -28,8 +31,12 @@ const Accordion = (props: IAccordion) => {
       alignItems="stretch"
       width="100%"
       height="auto"
-      borderColor={inube.palette.neutral.N40}
-      backgroundColor={inube.palette.neutral.N0}
+      borderColor={
+        theme ? theme?.palette?.neutral?.N40 : inube.palette.neutral.N40
+      }
+      backgroundColor={
+        theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+      }
     >
       <StyledHead onClick={handleToggleOpen}>
         <Text
@@ -62,4 +69,3 @@ const Accordion = (props: IAccordion) => {
 };
 
 export { Accordion };
-export type { IAccordion };

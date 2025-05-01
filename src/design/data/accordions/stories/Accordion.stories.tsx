@@ -3,7 +3,8 @@ import { Meta, StoryFn, StoryObj } from "@storybook/react";
 import { Grid } from "@inubekit/inubekit";
 
 import { BoxAttribute } from "@design/feedback/boxAttributes";
-import { Accordion, IAccordion } from "..";
+import { IAccordion } from "@ptypes/design/IAccordion";
+import { Accordion } from "..";
 
 const meta: Meta<typeof Accordion> = {
   title: "data/Accordion",

@@ -100,4 +100,3 @@ const GeneralInformationPayrollForm = forwardRef<
 GeneralInformationPayrollForm.displayName = "GeneralInformationPayrollForm";
 
 export { GeneralInformationPayrollForm };
-export type { IGeneralInformationPayrollForm };

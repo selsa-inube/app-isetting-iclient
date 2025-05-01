@@ -61,7 +61,7 @@ const AddCycleModal = (props: IAddCycleModal) => {
           name="nameCycle"
           id="nameCycle"
           label={addCycleLabels.nameCycle}
-          placeholder="Nombre"
+          placeholder={addCycleLabels.placeholderNameCycle}
           type="text"
           size="compact"
           value={formik.values.nameCycle}
@@ -77,7 +77,7 @@ const AddCycleModal = (props: IAddCycleModal) => {
               id="periodicity"
               name="periodicity"
               label={addCycleLabels.periodicity}
-              placeholder="Selecciónalo de la lista"
+              placeholder={addCycleLabels.placeholderPeriodicity}
               onChange={onChange}
               options={periodicityOptions ?? []}
               size="compact"
@@ -106,7 +106,7 @@ const AddCycleModal = (props: IAddCycleModal) => {
               <Select
                 id="payday"
                 name="payday"
-                placeholder="Selecciónalo de la lista"
+                placeholder={addCycleLabels.placeholderPayday}
                 onChange={onChange}
                 options={paydayOptions ?? []}
                 disabled={!formik.values.periodicity}
@@ -126,7 +126,7 @@ const AddCycleModal = (props: IAddCycleModal) => {
               id="typePayment"
               name="typePayment"
               label={addCycleLabels.typePayment}
-              placeholder="Selecciónalo de la lista"
+              placeholder={addCycleLabels.placeholderTypePayment}
               onChange={onChange}
               options={typePaymentOptions ?? []}
               size="compact"
@@ -153,7 +153,7 @@ const AddCycleModal = (props: IAddCycleModal) => {
                   <Select
                     id="month"
                     name="month"
-                    placeholder="Mes"
+                    placeholder={addCycleLabels.placeholderMonth}
                     onChange={onChange}
                     options={monthOptions ?? []}
                     size="compact"
@@ -167,7 +167,7 @@ const AddCycleModal = (props: IAddCycleModal) => {
                   <Select
                     id="day"
                     name="day"
-                    placeholder="Día"
+                    placeholder={addCycleLabels.placeholderDay}
                     onChange={onChange}
                     options={dayOptions ?? []}
                     size="compact"
@@ -187,7 +187,7 @@ const AddCycleModal = (props: IAddCycleModal) => {
           id="numberDaysUntilCut"
           name="numberDaysUntilCut"
           label={addCycleLabels.numberDaysUntilCut}
-          placeholder="Selecciónalo de la lista"
+          placeholder={addCycleLabels.placeholderNumberDaysUntilCut}
           onChange={onChange}
           options={numberDaysUntilCutOptions}
           size="compact"
@@ -203,4 +203,3 @@ const AddCycleModal = (props: IAddCycleModal) => {
 };
 
 export { AddCycleModal };
-export type { IAddCycleModal };

@@ -5,10 +5,10 @@ import { object } from "yup";
 
 import { validationRules } from "@validations/validationRules";
 import { validationMessages } from "@validations/validationMessages";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
 import { useCountries } from "@hooks/generic/useCountries";
 import { useCities } from "@hooks/generic/useCities";
 import { alertModal } from "@config/payrollAgreement/payrollAgreementTab/generic/alertModal";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { IUseCompanyForm } from "@ptypes/hooks/IUseCompanyForm";
 import { useLegalPerson } from "../useLegalPerson";
 

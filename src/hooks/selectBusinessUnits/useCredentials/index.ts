@@ -1,6 +1,6 @@
 import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { IUseCheckCredentials } from "@ptypes/hooks/credentials/IUseCheckCredentials";
 
 const useCheckCredentials = (props: IUseCheckCredentials) => {

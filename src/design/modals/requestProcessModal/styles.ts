@@ -18,7 +18,8 @@ interface IStyledStepIndicator {
 const StyledModal = styled.div<IStyledModal>`
   display: flex;
   flex-direction: column;
-  background-color: ${inube.palette.neutral.N0};
+  background-color: ${({ theme }) =>
+    theme?.palette?.neutral.N0 ?? inube.palette.neutral.N0};
   width: ${(props) => (props.$smallScreen ? "335px" : "550px")};
   height: ${(props) => (props.$smallScreen ? "226px" : "270px")};
   border-radius: ${tokens.spacing.s100};
@@ -29,8 +30,10 @@ const StyledModal = styled.div<IStyledModal>`
 
 const StyledContainerProgressBar = styled.div<IStyledContainerProgressBar>`
   width: 100%;
-  background-color: ${inube.palette.neutral.N30};
-  border: 1px solid ${inube.palette.neutral.N40};
+  background-color: ${({ theme }) =>
+    theme?.palette?.neutral.N0 ?? inube.palette.neutral.N0};
+  border: ${({ theme }) =>
+    ` 1px solid  ${theme?.palette?.neutral.N40 ?? inube.palette.neutral.N40}`};
   border-radius: ${tokens.spacing.s050};
   height: ${({ $height }) => $height};
 `;
@@ -44,8 +47,10 @@ const StyledStepIndicator = styled.div<IStyledStepIndicator>`
   border-radius: 50%;
   border-width: 2px;
   border-style: solid;
-  border-color: ${({ $statusError }) =>
-    $statusError ? `${inube.palette.red.R400}` : `${inube.palette.green.G400}`};
+  border-color: ${({ $statusError, theme }) =>
+    $statusError
+      ? `${theme?.palette?.red.R400 ?? inube.palette.red.R400}`
+      : `${theme?.palette?.green.G400 ?? inube.palette.green.G400}`};
 `;
 
 export { StyledModal, StyledContainerProgressBar, StyledStepIndicator };

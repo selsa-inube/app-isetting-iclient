@@ -1,3 +1,4 @@
+import { ITab } from "@inubekit/inubekit";
 import { ICardData } from "@ptypes/home/ICardData";
 
 interface IPayrollAgreementUI {
@@ -7,6 +8,7 @@ interface IPayrollAgreementUI {
   showRequestsInProgressTab: boolean;
   smallScreen: boolean;
   smallScreenTab: boolean;
+  payrollAgreementTabs: ITab[];
   handleTabChange: (id: string) => void;
 }
 

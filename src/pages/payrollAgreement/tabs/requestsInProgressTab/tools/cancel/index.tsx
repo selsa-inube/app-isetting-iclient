@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { CancelRecord } from "@design/feedback/cancelRecord";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { ICancel } from "@ptypes/payrollAgreement/requestInProgTab/ICancel";
 import { cancelRequestInProgressModal } from "@config/payrollAgreement/requestsInProgressTab/generic/cancelRequestInProgressModal";
 import { useCancelRequestInProgress } from "@hooks/payrollAgreement/useCancelRequestInProgress";

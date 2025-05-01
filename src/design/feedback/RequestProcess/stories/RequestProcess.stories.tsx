@@ -4,7 +4,8 @@ import { useState } from "react";
 import { Button } from "@inubekit/inubekit";
 
 import { requestStatusMessage } from "@config/payrollAgreement/payrollAgreementTab/generic/requestStatusMessage";
-import { IRequestProcess, RequestProcess } from "..";
+import { IRequestProcess } from "@ptypes/design/IRequestProcess";
+import { RequestProcess } from "..";
 
 const meta: Meta<typeof RequestProcess> = {
   title: "feedback/RequestProcess",

@@ -10,7 +10,6 @@ import { IEditPayrollAgreementForms } from "@ptypes/payrollAgreement/payrollAgre
 import { IServerDomain } from "@ptypes/IServerDomain";
 import { optionsFromEnumerators } from "@utils/optionsFromEnumerators";
 import { useEnumerators } from "@hooks/useEnumerators";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
 import { ISaveDataRequest } from "@ptypes/saveData/ISaveDataRequest";
 import { compareObjects } from "@utils/compareObjects";
 import { formatDate } from "@utils/date/formatDate";
@@ -25,6 +24,8 @@ import { IRegularPaymentCycles } from "@ptypes/payrollAgreement/payrollAgreement
 import { severancePay } from "@config/payrollAgreement/payrollAgreementTab/assisted/severancePaymentCycles";
 import { IUseEditPayrollAgreement } from "@ptypes/hooks/payrollAgreement/IUseEditPayrollAgreement";
 import { specialBenefitPayment } from "@config/payrollAgreement/payrollAgreementTab/assisted/specialBenefitPaymentCycles";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
+import { deletedAlertModal } from "@config/payrollAgreement/payrollAgreementTab/generic/deletedAlertModal";
 import { useManagePayrollCycles } from "../useManagePayrollCycles";
 
 const useEditPayrollAgreement = (props: IUseEditPayrollAgreement) => {
@@ -351,6 +352,8 @@ const useEditPayrollAgreement = (props: IUseEditPayrollAgreement) => {
       setSaveData({
         applicationName: "ifac",
         businessManagerCode: appData.businessManager.publicCode,
+        businessManagerName: appData.businessUnit.abbreviatedName,
+        businessUnitName: appData.businessUnit.abbreviatedName,
         businessUnitCode: appData.businessUnit.publicCode,
         description: "Solicitud de modificación de una nómina de convenio",
         entityName: conditionRule,
@@ -376,6 +379,11 @@ const useEditPayrollAgreement = (props: IUseEditPayrollAgreement) => {
   const showExtraPaymentCyclesForm =
     isSelected === editPayrollAgTabsConfig.extraordinaryPaymentCycles.id;
 
+  const filteredTabs = Object.values(filteredTabsConfig);
+
+  const { title, description, actionText, moreDetails } =
+    deletedAlertModal(typePayroll);
+
   return {
     formValues,
     generalInformationRef,
@@ -398,6 +406,11 @@ const useEditPayrollAgreement = (props: IUseEditPayrollAgreement) => {
     showGeneralInfPayrollForm,
     showRegularPaymentCyclesForm,
     showExtraPaymentCyclesForm,
+    filteredTabs,
+    title,
+    description,
+    actionText,
+    moreDetails,
     handleToggleDeletedAlertModal,
     setExtraordinaryPayment,
     setRegularPaymentCycles,

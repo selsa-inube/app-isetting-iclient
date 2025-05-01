@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { useRequestsInProgress } from "@hooks/payrollAgreement/useRequestsInProgress";
 import { IEntry } from "@ptypes/design/table/IEntry";
 import { RequestsInProgressTabUI } from "./interface";
@@ -11,8 +11,8 @@ const RequestsInProgressTab = () => {
     requestsInProgress,
     searchRequestsInProgress,
     loading,
-    widthFirstColumn,
     smallScreen,
+    columnWidths,
     handleSearchRequestsInProgress,
     setEntryCanceled,
   } = useRequestsInProgress({ bussinesUnits: appData.businessUnit.publicCode });
@@ -24,8 +24,8 @@ const RequestsInProgressTab = () => {
       searchrequestProgress={searchRequestsInProgress}
       onSearchrequestProgress={handleSearchRequestsInProgress}
       setEntryCanceled={setEntryCanceled}
-      widthFirstColumn={widthFirstColumn}
       smallScreen={smallScreen}
+      columnWidths={columnWidths}
     />
   );
 };

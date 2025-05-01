@@ -5,13 +5,14 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Icon, Grid, Header, Nav, inube } from "@inubekit/inubekit";
 
 import { BusinessUnitChange } from "@design/inputs/BusinessUnitChange";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { userMenu } from "@config/menuMainConfiguration";
 import { actionsConfig } from "@config/mainActionLogout";
 import { RenderLogo } from "@design/feedback/renderLogo";
 import { BoxContainer } from "@design/layout/boxContainer";
 import { tokens } from "@design/tokens";
 import { useAppPage } from "@hooks/useAppPage";
+import { useThemeData } from "@utils/theme";
 import {
   StyledAppPage,
   StyledCollapse,
@@ -28,7 +29,7 @@ const AppPage = () => {
     businessUnitSigla,
   } = useContext(AuthAndPortalData);
   const { logout } = useAuth0();
-
+  const theme = useThemeData();
   const {
     collapse,
     collapseMenuRef,
@@ -38,9 +39,15 @@ const AppPage = () => {
     isTabletMain,
     optionsHeader,
     optionsNav,
+    hasMultipleBusinessUnits,
     setCollapse,
     handleLogoClick,
-  } = useAppPage({ appData, businessUnitSigla, setBusinessUnitSigla });
+  } = useAppPage({
+    appData,
+    businessUnitSigla,
+    setBusinessUnitSigla,
+    businessUnitsToTheStaff,
+  });
 
   return (
     <StyledAppPage>
@@ -56,7 +63,7 @@ const AppPage = () => {
             menu={userMenu}
           />
         </StyledHeaderContainer>
-        {businessUnitsToTheStaff.length > 1 && (
+        {hasMultipleBusinessUnits && (
           <>
             <StyledCollapseIcon
               $collapse={collapse}
@@ -95,7 +102,9 @@ const AppPage = () => {
               boxSizing="border-box"
               height="calc(100vh - 54px)"
               overflowY="auto"
-              backgroundColor={inube.palette.neutral.N0}
+              backgroundColor={
+                theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+              }
               padding={
                 isTabletMain ? `${tokens.spacing.s300}` : `${tokens.spacing.s0}`
               }

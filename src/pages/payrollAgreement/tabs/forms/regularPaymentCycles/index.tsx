@@ -39,6 +39,7 @@ const RegularPaymentCyclesForm = forwardRef<
       columnWidths,
       labelButtonPrevious,
       labelButtonNext,
+      disabledButtonNext,
       onToggleInfoModal,
       handleToggleModal,
       handleChange,
@@ -61,7 +62,6 @@ const RegularPaymentCyclesForm = forwardRef<
         formik={formik}
         onButtonClick={onButtonClick}
         onChange={handleChange}
-        editDataOption={editDataOption}
         isDisabledButton={isDisabledButton}
         valuesEqual={valuesEqual}
         showAddModal={showAddModal}
@@ -80,6 +80,7 @@ const RegularPaymentCyclesForm = forwardRef<
         columnWidths={columnWidths}
         labelButtonPrevious={labelButtonPrevious}
         labelButtonNext={labelButtonNext}
+        disabledButtonNext={disabledButtonNext}
       />
     );
   },
@@ -88,4 +89,3 @@ const RegularPaymentCyclesForm = forwardRef<
 RegularPaymentCyclesForm.displayName = "RegularPaymentCyclesForm";
 
 export { RegularPaymentCyclesForm };
-export type { IRegularPaymentCyclesForm };

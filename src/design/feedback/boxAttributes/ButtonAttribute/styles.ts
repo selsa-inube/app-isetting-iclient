@@ -9,7 +9,8 @@ const StyledContainer = styled.div`
     ${tokens.spacing.s025};
   gap: ${tokens.spacing.s100};
   border-radius: ${tokens.spacing.s050};
-  background-color: ${inube.palette.neutral.N30};
+  background-color: ${({ theme }) =>
+    theme?.palette?.neutral.N30 ?? inube.palette.neutral.N30};
   cursor: pointer;
 `;
 

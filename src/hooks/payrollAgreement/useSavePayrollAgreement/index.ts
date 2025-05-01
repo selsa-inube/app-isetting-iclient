@@ -8,12 +8,13 @@ import { requestStepsInitial } from "@config/request/requestSteps";
 import { ISaveDataResponse } from "@ptypes/saveData/ISaveDataResponse";
 import { statusCloseModal } from "@config/status/statusCloseModal";
 import { statusRequestFinished } from "@config/status/statusRequestFinished";
-import { ChangeToRequestTab } from "@context/changeToRequestTab";
+import { ChangeToRequestTab } from "@context/changeToRequestTab/changeToRequest";
 import { getRequestInProgressById } from "@services/request/getRequestInProgressById";
 import { flowAutomaticMessages } from "@config/request/generic/flowAutomaticMessages";
 import { interventionHumanMessage } from "@config/request/generic/interventionHumanMessage";
 import { IUseSavePayrollAgreement } from "@ptypes/hooks/payrollAgreement/IUseSavePayrollAgreement";
 import { IRequestSteps } from "@ptypes/design/IRequestSteps";
+import { requestStatusMessage } from "@src/config/payrollAgreement/payrollAgreementTab/generic/requestStatusMessage";
 
 const useSavePayrollAgreement = (props: IUseSavePayrollAgreement) => {
   const {
@@ -242,6 +243,12 @@ const useSavePayrollAgreement = (props: IUseSavePayrollAgreement) => {
   const showRequestStatus =
     showPendingReqModal && savePayrollAgreement?.requestNumber;
 
+  const {
+    title: titleRequest,
+    description: descriptionRequest,
+    actionText: actionTextRequest,
+  } = requestStatusMessage(savePayrollAgreement?.responsible);
+
   return {
     savePayrollAgreement,
     requestSteps,
@@ -249,6 +256,9 @@ const useSavePayrollAgreement = (props: IUseSavePayrollAgreement) => {
     loadingSendData,
     showRequestProcess,
     showRequestStatus,
+    titleRequest,
+    descriptionRequest,
+    actionTextRequest,
     handleCloseRequestStatus,
     handleClosePendingReqModal,
   };

@@ -54,4 +54,3 @@ const CompanyForm = forwardRef<FormikProps<ICompanyEntry>, ICompanyForm>(
 CompanyForm.displayName = "CompanyForm";
 
 export { CompanyForm };
-export type { ICompanyForm };

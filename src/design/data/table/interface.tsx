@@ -44,11 +44,11 @@ const TableUI = (props: ITableUI) => {
   return (
     <Table tableLayout="fixed">
       <Colgroup>
-        {WidthColmnsData(
-          TitleColumns,
+        {WidthColmnsData({
+          titleColumns: TitleColumns,
           widthPercentageTotalColumns,
           columnWidths,
-        )}
+        })}
       </Colgroup>
 
       <Thead>
@@ -58,12 +58,12 @@ const TableUI = (props: ITableUI) => {
               {title.titleName}
             </Th>
           ))}
-          {ShowActionTitle(
+          {ShowActionTitle({
             numberActions,
-            mediaActionOpen,
-            actions,
-            withActionsTitles,
-          )}
+            mediaQuery: mediaActionOpen,
+            actionTitle: actions,
+            title: withActionsTitles,
+          })}
         </Tr>
       </Thead>
       <Tbody>
@@ -102,7 +102,11 @@ const TableUI = (props: ITableUI) => {
                           </Text>
                         </Td>
                       ))}
-                      {ShowAction(actions, entry, mediaActionOpen)}
+                      {ShowAction({
+                        actionContent: actions,
+                        entry,
+                        mediaQuery: mediaActionOpen,
+                      })}
                     </Tr>
                   ))
                 ) : (

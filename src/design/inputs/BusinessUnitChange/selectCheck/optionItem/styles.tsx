@@ -10,21 +10,26 @@ const StyledOptionItemChecked = styled.li`
   min-height: 40px;
   border-left-style: solid;
   border-left-width: ${tokens.spacing.s025};
-  border-left-color: ${inube.palette.neutral.N10};
+  border-left-color: ${({ theme }) =>
+    theme?.palette?.neutral.N10 ?? inube.palette.neutral.N10};
   padding: ${tokens.spacing.s050} ${tokens.spacing.s200} ${tokens.spacing.s050}
     ${tokens.spacing.s150};
 
   p {
-    color: ${inube.palette.neutral.N900};
+    color: ${({ theme }) =>
+      theme?.palette?.neutral?.N900 || inube.palette.neutral.N900};
   }
 
   &:hover {
-    border-left-color: ${inube.palette.blue.B400};
+    border-left-color: ${({ theme }) =>
+      theme?.palette?.blue.B400 || inube.palette.blue.B400};
 
-    background-color: ${inube.palette.neutral.N20};
+    background-color: ${({ theme }) =>
+      theme?.palette?.neutral.N20 || inube.palette.neutral.N20};
 
     p {
-      color: ${inube.palette.blue.B400};
+      color: ${({ theme }) =>
+        theme?.palette?.blue.B400 || inube.palette.blue.B400};
     }
   }
 `;

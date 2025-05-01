@@ -71,4 +71,3 @@ const RequestProcessModal = (props: IRequestProcessModal) => {
 };
 
 export { RequestProcessModal };
-export type { IRequestProcessModal };

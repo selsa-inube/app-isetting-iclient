@@ -2,7 +2,8 @@ import { BrowserRouter } from "react-router-dom";
 import { Meta, StoryFn } from "@storybook/react";
 
 import { ComponentAppearance } from "@enum/appearances";
-import { IRequestProcessModal, RequestProcessModal } from "..";
+import { RequestProcessModal } from "..";
+import { IRequestProcessModal } from "@ptypes/design/IRequestProcessModal";
 
 const meta: Meta<typeof RequestProcessModal> = {
   title: "modals/RequestProcessModal",

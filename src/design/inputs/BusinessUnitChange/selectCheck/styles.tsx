@@ -59,7 +59,8 @@ const StyledInputContainer = styled.div<IStyledInputContainer>`
   user-select: none;
   border-width: 1px;
   border-style: solid;
-  background-color: ${inube.palette.neutral.N0};
+  background-color: ${({ theme }) =>
+    theme?.palette?.neutral.N0 ?? inube.palette.neutral.N0};
   border-color: ${({ $disabled, $readonly, $status, $focused, $invalid }) => {
     if ($disabled) {
       return (
@@ -92,13 +93,15 @@ const StyledInput = styled.input<IStyledInput>`
     }
     return inube.palette.neutral.N900;
   }};
-  background-color: ${inube.palette.neutral.N0};
+  background-color: ${({ theme }) =>
+    theme?.palette?.neutral.N0 ?? inube.palette.neutral.N0};
   cursor: ${({ $disabled }) => ($disabled ? "not-allowed" : "pointer")};
 
   ${({ $size = "compact" }) => sizeOptions[$size]};
 
   ::placeholder {
-    color: ${inube.palette.neutral.N20};
+    color: ${({ theme }) =>
+      theme?.palette?.neutral.N0 ?? inube.palette.neutral.N20};
   }
 
   &:focus {

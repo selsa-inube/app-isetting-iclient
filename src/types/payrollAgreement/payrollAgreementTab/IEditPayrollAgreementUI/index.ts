@@ -1,3 +1,4 @@
+import { ITab } from "@inubekit/inubekit";
 import { FormikProps } from "formik";
 import { IGeneralInformationEntry } from "../forms/IGeneralInformationPayroll";
 import { IEditPayrollAgreementForms } from "../forms/IEditPayrollAgreementForms";
@@ -6,7 +7,6 @@ import { ISaveDataResponse } from "@ptypes/saveData/ISaveDataResponse";
 import { IRequestSteps } from "@ptypes/design/IRequestSteps";
 import { IOrdinaryCyclesEntry } from "../forms/IOrdinaryCyclesEntry";
 import { IExtraordinaryCyclesEntry } from "../forms/IExtraordinaryCyclesEntry";
-import { IEditPayrollTabsConfig } from "../IEditPayrollTabsConfig";
 
 interface IEditPayrollAgreementUI {
   isSelected: string;
@@ -26,13 +26,19 @@ interface IEditPayrollAgreementUI {
   typeRegularPayroll: boolean;
   regularPaymentCycles: IOrdinaryCyclesEntry[];
   extraordinaryPayment: IExtraordinaryCyclesEntry[];
-  filteredTabsConfig: IEditPayrollTabsConfig;
   showDeletedAlertModal: boolean;
-  typePayroll: string;
   showRegularPaymentCyclesForm: boolean;
   showExtraPaymentCyclesForm: boolean;
   showGeneralInfPayrollForm: boolean;
   showRequestStatus: string | false | undefined;
+  filteredTabs: ITab[];
+  title: string;
+  description: string;
+  actionText: string;
+  moreDetails: string;
+  titleRequest: string;
+  descriptionRequest: string;
+  actionTextRequest: string;
   setExtraordinaryPayment: React.Dispatch<
     React.SetStateAction<IExtraordinaryCyclesEntry[]>
   >;

@@ -17,9 +17,11 @@ import { companyLabels } from "@config/payrollAgreement/payrollAgreementTab/form
 import { DecisionModal } from "@design/modals/decisionModal";
 import { ICompanyFormUI } from "@ptypes/payrollAgreement/payrollAgreementTab/forms/ICompanyFormUI";
 import { BoxContainer } from "@design/layout/boxContainer";
+import { useThemeData } from "@utils/theme";
 import { StyledFormContent } from "../styles";
 
 const CompanyFormUI = (props: ICompanyFormUI) => {
+  const theme = useThemeData();
   const {
     formik,
     loading,
@@ -45,18 +47,24 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
       direction="column"
       gap={tokens.spacing.s300}
       minHeight="55vh"
-      backgroundColor={inube.palette.neutral.N0}
+      backgroundColor={
+        theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+      }
       boxSizing="initial"
     >
       <StyledFormContent>
         <BoxContainer
-          borderColor={inube.palette.neutral.N40}
+          borderColor={
+            theme ? theme?.palette?.neutral?.N40 : inube.palette.neutral.N40
+          }
           borderRadius={tokens.spacing.s100}
           gap={tokens.spacing.s300}
           padding={
             isMobile ? `${tokens.spacing.s150}` : `${tokens.spacing.s300}`
           }
-          backgroundColor={inube.palette.neutral.N0}
+          backgroundColor={
+            theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+          }
           boxSizing="initial"
         >
           <Stack gap={tokens.spacing.s300} direction="column" width="100%">
@@ -66,7 +74,7 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
               id="companySelected"
               name="companySelected"
               label={companyLabels.companySelected}
-              placeholder="Seleccione una opción"
+              placeholder={companyLabels.placeholderCompanySelected}
               onChange={onCompanyChange}
               options={legalPerson}
               size="compact"
@@ -82,7 +90,7 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
                     name="companyName"
                     id="companyName"
                     label={companyLabels.companyName}
-                    placeholder="Nombre de la empresa"
+                    placeholder={companyLabels.placeholderCompanyName}
                     type="text"
                     size="compact"
                     value={formik.values.companyName}
@@ -104,7 +112,7 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
                       name="companyNameCommercial"
                       id="companyNameCommercial"
                       label={companyLabels.companyNameCommercial}
-                      placeholder="Nombre comercial"
+                      placeholder={companyLabels.placeholdercompanyNameCommerc}
                       type="text"
                       size="compact"
                       value={formik.values.companyNameCommercial}
@@ -119,7 +127,7 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
                       id="companyCountry"
                       name="companyCountry"
                       label={companyLabels.companyCountry}
-                      placeholder="Seleccione una opción"
+                      placeholder={companyLabels.placeholderCompanyCountry}
                       onChange={onChange}
                       options={optionsCountries}
                       size="compact"
@@ -143,7 +151,7 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
                         id="companyTypeIdent"
                         name="companyTypeIdent"
                         label={companyLabels.companyTypeIdent}
-                        placeholder="Seleccione una opción"
+                        placeholder={companyLabels.placeholderCompanyTypeIdent}
                         onChange={onChange}
                         options={getDomainById("typeIdentCompany")}
                         size="compact"
@@ -156,7 +164,9 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
                         name="companyNumberIdent"
                         id="companyNumberIdent"
                         label={companyLabels.companyNumberIdent}
-                        placeholder="Número de identificacíon"
+                        placeholder={
+                          companyLabels.placeholderCompanyNumberIdent
+                        }
                         type="number"
                         size="compact"
                         value={formik.values.companyNumberIdent}
@@ -171,7 +181,9 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
                         id="companyCountryIdent"
                         name="companyCountryIdent"
                         label={companyLabels.companyCountryIdent}
-                        placeholder="Seleccione una opción"
+                        placeholder={
+                          companyLabels.placeholderCompanyCountryIdent
+                        }
                         onChange={onChange}
                         options={optionsCountries}
                         size="compact"
@@ -204,7 +216,9 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
                           name="companyAddressRes"
                           id="companyAddressRes"
                           label={companyLabels.companyAddressRes}
-                          placeholder="Ej: Calle 10 #2a - 34"
+                          placeholder={
+                            companyLabels.placeholderCompanyAddressRes
+                          }
                           type="text"
                           size="compact"
                           value={formik.values.companyAddressRes}
@@ -218,7 +232,9 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
                           name="companyComplement"
                           id="companyComplement"
                           label={companyLabels.companyComplement}
-                          placeholder="Ej: Edificio rojo, oficina 202"
+                          placeholder={
+                            companyLabels.placeholderCompanyComplement
+                          }
                           type="text"
                           size="compact"
                           value={formik.values.companyComplement}
@@ -234,7 +250,7 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
                         id="companyCity"
                         name="companyCity"
                         label={companyLabels.companyCity}
-                        placeholder="Nombre de la ciudad"
+                        placeholder={companyLabels.placeholderCompanyCity}
                         onChange={onChange}
                         options={optionsCities}
                         size="compact"

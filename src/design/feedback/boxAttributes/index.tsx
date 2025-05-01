@@ -5,6 +5,7 @@ import { ComponentAppearance } from "@enum/appearances";
 import { IBoxAttribute } from "@ptypes/design/IBoxAttribute";
 import { BoxContainer } from "@design/layout/boxContainer";
 import { ButtonAttribute } from "./ButtonAttribute";
+import { useThemeData } from "@src/utils/theme";
 
 const BoxAttribute = (props: IBoxAttribute) => {
   const {
@@ -18,6 +19,7 @@ const BoxAttribute = (props: IBoxAttribute) => {
   } = props;
 
   const isMobile = useMediaQuery("(max-width: 990px)");
+  const theme = useThemeData();
 
   return (
     <BoxContainer
@@ -29,7 +31,9 @@ const BoxAttribute = (props: IBoxAttribute) => {
           : `${tokens.spacing.s075} ${tokens.spacing.s200}`
       }
       boxSizing="border-box"
-      backgroundColor={inube.palette.neutral.N10}
+      backgroundColor={
+        theme ? theme?.palette?.neutral?.N10 : inube.palette.neutral.N10
+      }
     >
       <Grid
         templateColumns={direction === "column" ? "1fr" : "auto 1fr"}
@@ -77,4 +81,3 @@ const BoxAttribute = (props: IBoxAttribute) => {
 };
 
 export { BoxAttribute };
-export type { IBoxAttribute };

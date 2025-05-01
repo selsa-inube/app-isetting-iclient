@@ -1,9 +1,10 @@
 import { MdClear } from "react-icons/md";
-import { Grid, Stack } from "@inubekit/inubekit";
+import { Grid, Icon, Stack } from "@inubekit/inubekit";
 
 import { tokens } from "@design/tokens";
 import { IActionsModal } from "@ptypes/design/IActionsModal";
 import { StyledModal, StyledContentActions } from "./styles";
+import { ComponentAppearance } from "@enum/appearances";
 
 const ActionsModal = (props: IActionsModal) => {
   const { actions, entry, onClose } = props;
@@ -18,21 +19,22 @@ const ActionsModal = (props: IActionsModal) => {
       >
         <Stack direction="column" gap={tokens.spacing.s100}>
           {actions.map((action, index) => (
-            <StyledContentActions
-              key={index}
-              onClick={(e) => e.stopPropagation()}
-            >
+            <StyledContentActions key={index}>
               <div onClick={(e) => e.stopPropagation()}>
                 {action.content(entry)}
               </div>
             </StyledContentActions>
           ))}
         </Stack>
-        <MdClear cursor="pointer" onClick={onClose} />
+        <Icon
+          icon={<MdClear />}
+          onClick={onClose}
+          appearance={ComponentAppearance.PRIMARY}
+          cursorHover
+        />
       </Grid>
     </StyledModal>
   );
 };
 
-export type { IActionsModal };
 export { ActionsModal };

@@ -11,6 +11,7 @@ import { RenderLogo } from "@design/feedback/renderLogo";
 import { homeLabels } from "@config/home/homeLabels";
 import { BoxContainer } from "@design/layout/boxContainer";
 import { tokens } from "@design/tokens";
+import { useThemeData } from "@utils/theme";
 import {
   StyledCollapse,
   StyledCollapseIcon,
@@ -21,6 +22,7 @@ import {
 } from "./styles";
 
 const HomeUI = (props: IHomeUI) => {
+  const theme = useThemeData();
   const {
     data,
     appData,
@@ -49,7 +51,9 @@ const HomeUI = (props: IHomeUI) => {
         padding={`${tokens.spacing.s0} ${tokens.spacing.s0} ${tokens.spacing.s500}`}
         height="100vh"
         overflowY="auto"
-        backgroundColor={inube.palette.neutral.N0}
+        backgroundColor={
+          theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+        }
       >
         <StyledHeaderContainer>
           <Header
@@ -94,7 +98,9 @@ const HomeUI = (props: IHomeUI) => {
             screenMobile ? `${tokens.spacing.s200}` : `${tokens.spacing.s0}`
           }
           gap={screenMobile ? `${tokens.spacing.s300}` : `${tokens.spacing.s0}`}
-          backgroundColor={inube.palette.neutral.N0}
+          backgroundColor={
+            theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+          }
           boxSizing="initial"
         >
           <StyledTitle $isTablet={screenTablet}>
@@ -116,7 +122,9 @@ const HomeUI = (props: IHomeUI) => {
             justifyContent={screenTablet ? "center" : "flex-start"}
             wrap="wrap"
             gap={tokens.spacing.s400}
-            backgroundColor={inube.palette.neutral.N0}
+            backgroundColor={
+              theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+            }
           >
             {dataExists ? (
               data?.map((card) => (

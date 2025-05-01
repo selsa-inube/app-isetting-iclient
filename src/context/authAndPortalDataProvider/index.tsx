@@ -1,13 +1,6 @@
-import { createContext } from "react";
-import { IAuthAndPortalData } from "@ptypes/context/IAuthAndPortalData";
 import { useValidatingLoginInformation } from "@hooks/context/useValidatingLoginInformation";
-
-const AuthAndPortalData = createContext<IAuthAndPortalData>(
-  {} as IAuthAndPortalData,
-);
-interface IAuthAndPortalDataProvider {
-  children: React.ReactNode;
-}
+import { IAuthAndPortalDataProvider } from "@config/context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "./authAndPortalData";
 
 const AuthAndPortalDataProvider = (props: IAuthAndPortalDataProvider) => {
   const { children } = props;
@@ -19,5 +12,4 @@ const AuthAndPortalDataProvider = (props: IAuthAndPortalDataProvider) => {
   );
 };
 
-export { AuthAndPortalData, AuthAndPortalDataProvider };
-export type { IAuthAndPortalDataProvider };
+export { AuthAndPortalDataProvider };

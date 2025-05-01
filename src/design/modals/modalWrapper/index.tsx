@@ -15,8 +15,10 @@ import { tokens } from "@design/tokens";
 import { ComponentAppearance } from "@enum/appearances";
 import { BoxContainer } from "@design/layout/boxContainer";
 import { IModalWrapper } from "@ptypes/design/IModalWrapper";
+import { useThemeData } from "@utils/theme";
 
 const ModalWrapper = (props: IModalWrapper) => {
+  const theme = useThemeData();
   const {
     appearanceButton,
     children,
@@ -52,7 +54,9 @@ const ModalWrapper = (props: IModalWrapper) => {
         width={width}
         height={height}
         direction="column"
-        backgroundColor={inube.palette.neutral.N0}
+        backgroundColor={
+          theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+        }
         borderRadius={tokens.spacing.s100}
         padding={tokens.spacing.s300}
         gap={isMobile ? `${tokens.spacing.s150}` : `${tokens.spacing.s250}`}
@@ -124,4 +128,3 @@ const ModalWrapper = (props: IModalWrapper) => {
 };
 
 export { ModalWrapper };
-export type { IModalWrapper };

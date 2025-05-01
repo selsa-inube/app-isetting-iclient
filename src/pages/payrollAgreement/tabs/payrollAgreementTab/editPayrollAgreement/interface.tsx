@@ -13,11 +13,11 @@ import { ComponentAppearance } from "@enum/appearances";
 import { Title } from "@design/data/title";
 import { tokens } from "@design/tokens";
 import { sendEditedModal } from "@config/payrollAgreement/payrollAgreementTab/generic/sendEditModal";
-import { deletedAlertModal } from "@config/payrollAgreement/payrollAgreementTab/generic/deletedAlertModal";
 import { IEditPayrollAgreementUI } from "@ptypes/payrollAgreement/payrollAgreementTab/IEditPayrollAgreementUI";
 import { GeneralInformationPayrollForm } from "@pages/payrollAgreement/tabs/forms/generalInfoPayrollAgreement";
 import { RegularPaymentCyclesForm } from "@pages/payrollAgreement/tabs/forms/regularPaymentCycles";
 import { ExtraordinaryPaymentCyclesForm } from "@pages/payrollAgreement/tabs/forms/extraordinaryPaymentCycles";
+import { editPayrollLabels } from "@config/payrollAgreement/payrollAgreementTab/edit/editPayrollLabels";
 
 const EditPayrollAgreementUI = (props: IEditPayrollAgreementUI) => {
   const {
@@ -38,12 +38,18 @@ const EditPayrollAgreementUI = (props: IEditPayrollAgreementUI) => {
     regularPaymentCycles,
     typeRegularPayroll,
     extraordinaryPayment,
-    filteredTabsConfig,
     showDeletedAlertModal,
-    typePayroll,
     showGeneralInfPayrollForm,
     showRegularPaymentCyclesForm,
     showExtraPaymentCyclesForm,
+    filteredTabs,
+    title,
+    description,
+    actionText,
+    moreDetails,
+    titleRequest,
+    descriptionRequest,
+    actionTextRequest,
     setExtraordinaryPayment,
     setRegularPaymentCycles,
     onTabChange,
@@ -74,8 +80,8 @@ const EditPayrollAgreementUI = (props: IEditPayrollAgreementUI) => {
         <Stack gap={tokens.spacing.s300} direction="column">
           <Breadcrumbs crumbs={crumbsEditPayrollAgreement} />
           <Title
-            title="Editar nómina de convenio"
-            description="Edita nómina de convenio."
+            title={editPayrollLabels.title}
+            description={editPayrollLabels.description}
             sizeTitle="large"
             navigatePage="/payroll-agreement"
             onClick={handleOpenModal}
@@ -83,7 +89,7 @@ const EditPayrollAgreementUI = (props: IEditPayrollAgreementUI) => {
         </Stack>
         <Stack gap={tokens.spacing.s300} direction="column">
           <Tabs
-            tabs={Object.values(filteredTabsConfig)}
+            tabs={filteredTabs}
             selectedTab={isSelected}
             onChange={onTabChange}
             scroll={smallScreen ? true : false}
@@ -156,16 +162,16 @@ const EditPayrollAgreementUI = (props: IEditPayrollAgreementUI) => {
       {showDeletedAlertModal && (
         <DecisionModal
           portalId="portal"
-          title={deletedAlertModal(typePayroll).title}
-          description={deletedAlertModal(typePayroll).description}
-          actionText={deletedAlertModal(typePayroll).actionText}
+          title={title}
+          description={description}
+          actionText={actionText}
           withIcon
           withCancelButton={false}
           icon={<MdOutlineWarningAmber />}
           appearance={ComponentAppearance.WARNING}
           onCloseModal={onToggleDeletedAlertModal}
           onClick={onToggleDeletedAlertModal}
-          moreDetails={deletedAlertModal(typePayroll).moreDetails}
+          moreDetails={moreDetails}
         />
       )}
       {showRequestProcessModal && (
@@ -182,17 +188,13 @@ const EditPayrollAgreementUI = (props: IEditPayrollAgreementUI) => {
       {showRequestStatus && (
         <RequestStatusModal
           portalId="portal"
-          title={requestStatusMessage(savePayrollAgreement.responsible).title}
-          description={
-            requestStatusMessage(savePayrollAgreement.responsible).description
-          }
+          title={titleRequest}
+          description={descriptionRequest}
           requestNumber={savePayrollAgreement.requestNumber}
           onClick={onClosePendingReqModal}
           onCloseModal={onClosePendingReqModal}
           isLoading={false}
-          actionText={
-            requestStatusMessage(savePayrollAgreement.responsible).actionText
-          }
+          actionText={actionTextRequest}
           appearance={ComponentAppearance.PRIMARY}
         />
       )}

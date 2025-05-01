@@ -14,7 +14,7 @@ import { daysOfMonth } from "@utils/daysOfMonth";
 import { convertToOptions } from "@utils/convertToOptions";
 import { monthsInNumber } from "@config/payrollAgreement/payrollAgreementTab/generic/monthsInNumber";
 import { generateExtraOrdPayDays } from "@utils/generateExtraOrdPayDays";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { useEnumerators } from "@hooks/useEnumerators";
 import { optionsFromEnumerators } from "@utils/optionsFromEnumerators";
 import { normalizeEnumTranslation } from "@utils/normalizeEnumTranslation";

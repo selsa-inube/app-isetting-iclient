@@ -8,7 +8,8 @@ const StyledModal = styled.div`
   top: 6px;
   right: 2px;
   flex-direction: column;
-  background-color: ${inube.palette.neutral.N0};
+  background-color: ${({ theme }) =>
+    theme?.palette?.neutral.N0 ?? inube.palette.neutral.N0};
   width: 155px;
   box-sizing: border-box;
   padding: ${tokens.spacing.s100} ${tokens.spacing.s150};

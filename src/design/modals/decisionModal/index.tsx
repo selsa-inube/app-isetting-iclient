@@ -61,4 +61,3 @@ const DecisionModal = (props: IDecisionModal) => {
 };
 
 export { DecisionModal };
-export type { IDecisionModal };

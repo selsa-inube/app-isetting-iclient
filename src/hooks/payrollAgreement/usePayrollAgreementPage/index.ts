@@ -1,6 +1,6 @@
 import { useMediaQuery } from "@inubekit/inubekit";
 import { useContext, useEffect, useState } from "react";
-import { ChangeToRequestTab } from "@context/changeToRequestTab";
+import { ChangeToRequestTab } from "@src/context/changeToRequestTab/changeToRequest";
 import { decrypt } from "@utils/crypto/decrypt";
 import { useOptionsByBusinessUnit } from "@hooks/staffPortal/useOptionsByBusinessUnit";
 import { payrollAgreementTabsConfig } from "@config/payrollAgreement/tabs";
@@ -47,6 +47,8 @@ const usePayrollAgreementPage = (props: IUsePayrollAgreementPage) => {
   const showRequestsInProgressTab =
     isSelected === payrollAgreementTabsConfig.requestsInProgress.id;
 
+  const payrollAgreementTabs = Object.values(payrollAgreementTabsConfig);
+
   return {
     isSelected,
     descriptionOptions,
@@ -54,6 +56,7 @@ const usePayrollAgreementPage = (props: IUsePayrollAgreementPage) => {
     showRequestsInProgressTab,
     smallScreen,
     smallScreenTab,
+    payrollAgreementTabs,
     handleTabChange,
   };
 };

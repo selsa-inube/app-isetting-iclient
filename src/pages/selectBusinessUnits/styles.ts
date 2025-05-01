@@ -6,7 +6,8 @@ interface IStyledImage {
 }
 
 const StyledWelcomeContainer = styled.div`
-  background-color: ${inube.palette.neutral.N30};
+  background-color: ${({ theme }) =>
+    theme?.palette?.neutral.N30 ?? inube.palette.neutral.N30};
 `;
 
 const StyledImage = styled.img<IStyledImage>`
