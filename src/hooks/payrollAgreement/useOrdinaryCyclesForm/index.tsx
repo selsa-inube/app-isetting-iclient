@@ -190,7 +190,7 @@ const useOrdinaryCyclesForm = (props: IUseOrdinaryCyclesForm) => {
     }
   }, [entryDeleted]);
 
-  const columnWidths = isMobile ? [25, 30, 20, 18] : [8, 30, 20, 18, 15];
+  const columnWidths = isMobile ? [70, 30, 20, 18] : [8, 30, 20, 18, 15];
 
   const labelButtonPrevious = editDataOption
     ? cyclespaymentLabels.cancelButton

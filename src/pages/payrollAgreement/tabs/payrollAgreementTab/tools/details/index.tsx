@@ -24,6 +24,7 @@ const Details = (props: IDetails) => {
   } = useDetailsPayrollAgreement({
     data,
     detailsTabsConfig: detailsPayrollAgreementTabsConfig,
+    showModalReq: false,
   });
 
   return (

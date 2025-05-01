@@ -39,6 +39,7 @@ const ExtraordinaryPaymentCyclesForm = forwardRef<
       dayOptions,
       labelButtonPrevious,
       labelButtonNext,
+      columnWidths,
       handleToggleModal,
       handleChange,
       handleAddCycle,
@@ -78,6 +79,7 @@ const ExtraordinaryPaymentCyclesForm = forwardRef<
         setEntryDeleted={setEntryDeleted}
         labelButtonPrevious={labelButtonPrevious}
         labelButtonNext={labelButtonNext}
+        columnWidths={columnWidths}
       />
     );
   },

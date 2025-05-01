@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMediaQuery } from "@inubekit/inubekit";
 
 import { mediaQueryMobile } from "@config/environment";
@@ -9,9 +9,10 @@ import { detailsRequestInProgressModal } from "@config/payrollAgreement/requests
 import { RequestType } from "@enum/requestType";
 import { IDetailsTabsConfig } from "@ptypes/payrollAgreement/requestInProgTab/IDetailsTabsConfig";
 import { IEntry } from "@ptypes/design/table/IEntry";
+import { eventBus } from "@src/events/eventBus";
 
 const useDetailsPayrollAgreement = (props: IUseDetailsPayrollAgreement) => {
-  const { data, detailsTabsConfig } = props;
+  const { data, detailsTabsConfig, showModalReq } = props;
 
   const [isSelected, setIsSelected] = useState<string>();
   const [showModal, setShowModal] = useState(false);
@@ -231,6 +232,19 @@ const useDetailsPayrollAgreement = (props: IUseDetailsPayrollAgreement) => {
   }`;
 
   const screenTablet = useMediaQuery("(max-width: 1200px)");
+
+  useEffect(() => {
+    const emitEvent = (eventName: string) => {
+      eventBus.emit(eventName, showModal);
+    };
+    if (showModalReq && !showModal) {
+      emitEvent("secondModalState");
+    } else if (!showModalReq && !showModal) {
+      emitEvent("secondModalState");
+    } else if (!showModalReq && showModal) {
+      emitEvent("thirdModalState");
+    }
+  }, [showModal]);
 
   return {
     showModal,

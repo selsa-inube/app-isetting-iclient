@@ -22,6 +22,7 @@ import { compareObjects } from "@utils/compareObjects";
 import { IEntry } from "@ptypes/design/table/IEntry";
 import { IUseExtraordinaryCyclesForm } from "@ptypes/hooks/IUseExtraordinaryCyclesForm";
 import { cyclespaymentLabels } from "@config/payrollAgreement/payrollAgreementTab/forms/cyclespaymentLabels";
+import { eventBus } from "@events/eventBus";
 
 const useExtraordinaryCyclesForm = (props: IUseExtraordinaryCyclesForm) => {
   const {
@@ -193,6 +194,12 @@ const useExtraordinaryCyclesForm = (props: IUseExtraordinaryCyclesForm) => {
     ? cyclespaymentLabels.sendButton
     : cyclespaymentLabels.nextButton;
 
+  const columnWidths = isMobile ? [70, 12, 10, 14] : [50, 12, 10, 14];
+
+  useEffect(() => {
+    eventBus.emit("secondModalState", showModal);
+  }, [showModal]);
+
   return {
     formik,
     isDisabledButton,
@@ -206,6 +213,7 @@ const useExtraordinaryCyclesForm = (props: IUseExtraordinaryCyclesForm) => {
     dayOptions,
     labelButtonPrevious,
     labelButtonNext,
+    columnWidths,
     handleChange,
     handleAddCycle,
     handleToggleModal,

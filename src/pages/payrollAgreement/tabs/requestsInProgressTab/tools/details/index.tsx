@@ -31,6 +31,7 @@ const Details = (props: IDetails) => {
   } = useDetailsPayrollAgreement({
     data: normalizeData,
     detailsTabsConfig: detailsRequestPayrollTabsConfig,
+    showModalReq: showModal,
   });
 
   return (

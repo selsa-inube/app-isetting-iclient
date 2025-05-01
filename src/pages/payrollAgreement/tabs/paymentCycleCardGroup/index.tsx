@@ -17,8 +17,8 @@ const PaymentCycleCardGroup = (props: IPaymentCycleCardGroup) => {
     <BoxContainer
       width="100%"
       height="100%"
-      direction="row"
-      wrap="wrap"
+      direction={smallScreen ? "column" : "row"}
+      wrap={smallScreen ? "nowrap" : "wrap"}
       gap={smallScreen ? `${tokens.spacing.s075}` : `${tokens.spacing.s150}`}
       padding={tokens.spacing.s075}
       boxSizing="border-box"

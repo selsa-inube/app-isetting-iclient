@@ -7,12 +7,12 @@ const titles: ITitle[] = [
   {
     id: "cycleId",
     titleName: "Ciclo",
-    priority: 0,
+    priority: 1,
   },
   {
     id: "nameCycle",
     titleName: "Nombre",
-    priority: 1,
+    priority: 0,
   },
   {
     id: "periodicity",

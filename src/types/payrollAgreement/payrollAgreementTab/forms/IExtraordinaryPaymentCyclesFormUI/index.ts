@@ -17,6 +17,7 @@ interface IExtraordinaryPaymentCyclesFormUI {
   dayOptions: IServerDomain[];
   labelButtonNext: string;
   labelButtonPrevious: string;
+  columnWidths: number[];
   onAddCycle: () => void;
   onToggleModal: () => void;
   onButtonClick: () => void;

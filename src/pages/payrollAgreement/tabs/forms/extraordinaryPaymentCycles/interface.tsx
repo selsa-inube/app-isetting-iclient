@@ -34,6 +34,7 @@ const ExtraordinaryPaymentCyclesFormUI = (
     numberDaysUntilCutOptions,
     labelButtonNext,
     labelButtonPrevious,
+    columnWidths,
     onChange,
     onAddCycle,
     onButtonClick,
@@ -91,7 +92,7 @@ const ExtraordinaryPaymentCyclesFormUI = (
                 actions={actionsConfig(setEntryDeleted)}
                 breakpoints={breakPoints}
                 isLoading={loading}
-                columnWidths={[50, 12, 10, 14]}
+                columnWidths={columnWidths}
                 withActionsTitles
                 emptyDataMessage={cyclespaymentLabels.emptyDataMessage}
               />
