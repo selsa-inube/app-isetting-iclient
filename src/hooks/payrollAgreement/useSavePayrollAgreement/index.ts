@@ -14,7 +14,7 @@ import { flowAutomaticMessages } from "@config/request/generic/flowAutomaticMess
 import { interventionHumanMessage } from "@config/request/generic/interventionHumanMessage";
 import { IUseSavePayrollAgreement } from "@ptypes/hooks/payrollAgreement/IUseSavePayrollAgreement";
 import { IRequestSteps } from "@ptypes/design/IRequestSteps";
-import { requestStatusMessage } from "@src/config/payrollAgreement/payrollAgreementTab/generic/requestStatusMessage";
+import { requestStatusMessage } from "@config/payrollAgreement/payrollAgreementTab/generic/requestStatusMessage";
 
 const useSavePayrollAgreement = (props: IUseSavePayrollAgreement) => {
   const {

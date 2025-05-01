@@ -1,5 +1,5 @@
 import { Th } from "@inubekit/inubekit";
-import { IShowActionTitle } from "@src/types/design/IShowActionTitle";
+import { IShowActionTitle } from "@ptypes/design/IShowActionTitle";
 
 const ShowActionTitle = (props: IShowActionTitle) => {
   const { numberActions, mediaQuery, actionTitle, title } = props;

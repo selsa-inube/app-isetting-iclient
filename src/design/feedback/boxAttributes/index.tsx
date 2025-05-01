@@ -5,7 +5,7 @@ import { ComponentAppearance } from "@enum/appearances";
 import { IBoxAttribute } from "@ptypes/design/IBoxAttribute";
 import { BoxContainer } from "@design/layout/boxContainer";
 import { ButtonAttribute } from "./ButtonAttribute";
-import { useThemeData } from "@src/utils/theme";
+import { useThemeData } from "@utils/theme";
 
 const BoxAttribute = (props: IBoxAttribute) => {
   const {

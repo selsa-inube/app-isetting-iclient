@@ -6,9 +6,9 @@ import { countVerifiedRequests } from "@utils/countVerifiedRequests";
 import { verifiedErrorRequest } from "@utils/verifiedErrorRequest";
 import { lastCompletedIndex } from "@utils/lastCompletedIndex";
 import { IRequestProcessDesktop } from "@ptypes/design/IRequestProcessDesktop";
+import { useThemeData } from "@utils/theme";
 import { BoxContainer } from "@design/layout/boxContainer";
 import { StyledContainerProgressBar, StyledStepIndicator } from "../styles";
-import { useThemeData } from "@src/utils/theme";
 
 const RequestProcessDesktop = (props: IRequestProcessDesktop) => {
   const { requestSteps, sizeIcon, stepCurrent, stepCurrentIndex } = props;

@@ -7,6 +7,8 @@ const mapSavePayrollAgreementEntityToApi = (
     applicationName: data.applicationName,
     businessManagerCode: data.businessManagerCode,
     businessUnitCode: data.businessUnitCode,
+    businessManagerName: data.businessManagerName,
+    businessUnitName: data.businessUnitName,
     description: data.description,
     entityName: data.entityName,
     requestDate: data.requestDate,

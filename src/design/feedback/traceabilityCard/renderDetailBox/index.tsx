@@ -2,7 +2,7 @@ import { inube } from "@inubekit/inubekit";
 import { tokens } from "@design/tokens";
 import { IRenderDetailBox } from "@ptypes/design/IRenderDetailBox";
 import { DetailBox } from "../../detailBox";
-import { useThemeData } from "@src/utils/theme";
+import { useThemeData } from "@utils/theme";
 
 const RenderDetailBox = (props: IRenderDetailBox) => {
   const { data, field, id, withTag, isMobile } = props;

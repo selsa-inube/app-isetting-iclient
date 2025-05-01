@@ -1,4 +1,4 @@
-import { IPayrollAgreementData } from "@src/types/payrollAgreement/payrollAgreementTab/IPayrollAgreementData";
+import { IPayrollAgreementData } from "@ptypes/payrollAgreement/payrollAgreementTab/IPayrollAgreementData";
 
 const mapPayrollAgreementToEntity = (
   data: IPayrollAgreementData,

@@ -1,6 +1,6 @@
 import { useMediaQuery } from "@inubekit/inubekit";
 import { useContext, useEffect, useState } from "react";
-import { ChangeToRequestTab } from "@src/context/changeToRequestTab/changeToRequest";
+import { ChangeToRequestTab } from "@context/changeToRequestTab/changeToRequest";
 import { decrypt } from "@utils/crypto/decrypt";
 import { useOptionsByBusinessUnit } from "@hooks/staffPortal/useOptionsByBusinessUnit";
 import { payrollAgreementTabsConfig } from "@config/payrollAgreement/tabs";

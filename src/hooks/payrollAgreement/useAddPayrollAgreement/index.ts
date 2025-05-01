@@ -365,6 +365,8 @@ const useAddPayrollAgreement = (props: IUseAddPayrollAgreement) => {
       applicationName: "ifac",
       businessManagerCode: appData.businessManager.publicCode,
       businessUnitCode: appData.businessUnit.publicCode,
+      businessManagerName: appData.businessUnit.abbreviatedName,
+      businessUnitName: appData.businessUnit.abbreviatedName,
       description: "Solicitud de creación de una nómina de convenio",
       entityName: "PayrollAgreement",
       requestDate: formatDate(new Date()),
