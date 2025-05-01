@@ -28,7 +28,6 @@ const getRequestsInProgress = async (
     config,
   );
 
-  console.log("data----", data);
   return Array.isArray(data) ? mapRequestsInProgressToEntities(data) : [];
 };
 

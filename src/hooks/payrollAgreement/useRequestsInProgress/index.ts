@@ -55,8 +55,6 @@ const useRequestsInProgress = (props: IUseRequestsInProgress) => {
 
   const columnWidths = smallScreen ? [10, 20, 23] : [widthFirstColumn, 55, 23];
 
-  console.log({ requestsInProgress });
-
   return {
     requestsInProgress,
     hasError,

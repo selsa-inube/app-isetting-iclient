@@ -10,7 +10,6 @@ const useValidateBusinessUnities = async (
 
   const user = validateAndTrimString(userAccount);
 
-  console.log({ user });
   const newData = await getBusinessUnitsPortalStaff(publicCode, user);
 
   return newData;

@@ -48,8 +48,6 @@ const useDetailsRequestInProgress = (props: IUseDetailsRequestInProgress) => {
     severanceCyclesEliminated: [],
   };
 
-  console.log({ data });
-
   if (data.configurationRequestData.regularPaymentCycles) {
     normalizeData.regularCyclesIncluded =
       data.configurationRequestData.regularPaymentCycles.filter(

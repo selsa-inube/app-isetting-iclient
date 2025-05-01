@@ -7,7 +7,7 @@ import { usePayrollAgreementPage } from "@hooks/payrollAgreement/usePayrollAgree
 import { PayrollAgreementUI } from "./interface";
 
 const PayrollAgreement = () => {
-  const { businessUnitSigla, appData } = useContext(AuthAndPortalData);
+  const { businessUnitSigla } = useContext(AuthAndPortalData);
   const {
     isSelected,
     descriptionOptions,
@@ -18,8 +18,6 @@ const PayrollAgreement = () => {
     payrollAgreementTabs,
     handleTabChange,
   } = usePayrollAgreementPage({ businessUnitSigla });
-
-  console.log(appData);
 
   return (
     <PayrollAgreementUI

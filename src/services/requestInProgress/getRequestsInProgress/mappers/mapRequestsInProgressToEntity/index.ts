@@ -27,8 +27,6 @@ const mapRequestsInProgressToEntity = (
     ),
   };
 
-  console.log({ request });
-
   return request;
 };
 

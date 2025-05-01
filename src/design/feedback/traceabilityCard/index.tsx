@@ -9,7 +9,6 @@ const TraceabilityCard = (props: ITraceabilityCard) => {
   const { data, labels, isMobile } = props;
 
   const partLabels = labels.length;
-  console.log({ data });
 
   const firstDetail = labels.slice(0, 1).filter((field) => data[field.id]);
   const secondDetail = labels.slice(1, 2).filter((field) => data[field.id]);
