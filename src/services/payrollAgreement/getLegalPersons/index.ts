@@ -2,7 +2,7 @@ import { AxiosRequestConfig } from "axios";
 import { getWithRetries } from "@services/core/getWithRetries";
 import { ILegalPerson } from "@ptypes/payrollAgreement/payrollAgreementTab/ILegalPerson";
 import { queryProcessAxiosInstance } from "@api/isettingProcess/index.ts";
-import { mapLegalPersonsToEntities } from "./mappers.ts";
+import { mapLegalPersonsToEntities } from "./mappers/mapLegalPersonsToEntities/index.tsx";
 
 const getLegalPersonsData = async (
   bussinesUnits: string,

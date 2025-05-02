@@ -2,12 +2,13 @@ import { inube, Stack } from "@inubekit/inubekit";
 
 import { tokens } from "@design/tokens";
 import { BoxContainer } from "@design/layout/boxContainer";
+import { useThemeData } from "@utils/theme";
 import { ITraceabilityCard } from "@ptypes/design/ITraceabilityCard";
 import { RenderDetailBox } from "./renderDetailBox";
 
 const TraceabilityCard = (props: ITraceabilityCard) => {
   const { data, labels, isMobile } = props;
-
+  const theme = useThemeData();
   const partLabels = labels.length;
 
   const firstDetail = labels.slice(0, 1).filter((field) => data[field.id]);
@@ -19,7 +20,9 @@ const TraceabilityCard = (props: ITraceabilityCard) => {
   return (
     <BoxContainer
       direction="column"
-      backgroundColor={inube.palette.neutral.N0}
+      backgroundColor={
+        theme ? theme?.palette?.neutral?.N0 : inube.palette.neutral.N0
+      }
       width={isMobile ? "244px" : "400px"}
       height="auto"
       borderRadius={tokens.spacing.s100}

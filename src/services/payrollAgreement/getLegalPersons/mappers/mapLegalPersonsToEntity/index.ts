@@ -22,8 +22,4 @@ const mapLegalPersonsToEntity = (data: ILegalPerson): ILegalPerson => {
   return newData;
 };
 
-const mapLegalPersonsToEntities = (data: ILegalPerson[]): ILegalPerson[] => {
-  return data.map(mapLegalPersonsToEntity);
-};
-
-export { mapLegalPersonsToEntity, mapLegalPersonsToEntities };
+export { mapLegalPersonsToEntity };
