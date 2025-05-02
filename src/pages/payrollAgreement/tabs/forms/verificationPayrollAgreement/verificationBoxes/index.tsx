@@ -1,4 +1,5 @@
 import { IVerificationBoxes } from "@ptypes/payrollAgreement/payrollAgreementTab/forms/IVerificationBoxes";
+import { stepKeysPayroll } from "@enum/stepsKeysPayroll";
 import { RenderCompanyVerification } from "../companyVerification";
 import { RenderGeneralinfoVerification } from "../GeneralinfoVerification";
 import { RenderRegularVerification } from "../RegularVerification";
@@ -8,21 +9,23 @@ const VerificationBoxes = (props: IVerificationBoxes) => {
   const { updatedData, stepKey, typeRegularPayroll, isMobile } = props;
 
   const showOrdinaryCycles =
-    stepKey === 3 &&
+    stepKey === stepKeysPayroll.REGULAR_CYCLES &&
     typeRegularPayroll &&
     updatedData.ordinaryCycles.values.length > 0;
+
   const showExtraordinaryCycles =
-    stepKey === 4 && updatedData.extraordinaryCycles.values.length >= 1;
+    stepKey === stepKeysPayroll.EXTRAORDINARY_CYCLES &&
+    updatedData.extraordinaryCycles.values.length >= 1;
 
   return (
     <>
-      {stepKey === 1 && (
+      {stepKey === stepKeysPayroll.COMPANY && (
         <RenderCompanyVerification
           values={updatedData.company.values}
           isMobile={isMobile}
         />
       )}
-      {stepKey === 2 && (
+      {stepKey === stepKeysPayroll.GENERAL_INFO && (
         <RenderGeneralinfoVerification
           values={updatedData.generalInformation.values}
           isMobile={isMobile}
