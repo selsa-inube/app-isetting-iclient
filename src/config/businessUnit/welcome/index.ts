@@ -1,5 +1,5 @@
 const welcome = {
-  description: "Bienvenido a iSetting ICustomer Portal",
+  description: "Bienvenido a iSetting IClient Portal",
 };
 
 export { welcome };

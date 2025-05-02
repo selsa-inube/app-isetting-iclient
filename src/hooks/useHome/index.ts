@@ -1,9 +1,10 @@
 import { useMediaQueries } from "@inubekit/inubekit";
 import { useContext, useEffect, useRef, useState } from "react";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { IBusinessUnitsPortalStaff } from "@ptypes/staffPortal/IBusinessUnitsPortalStaff";
 import { useOptionsByBusinessUnit } from "@hooks/staffPortal/useOptionsByBusinessUnit";
 import { decrypt } from "@utils/crypto/decrypt";
+import { mainNavigation } from "@config/mainNavigation";
 
 const useHome = () => {
   const {
@@ -25,6 +26,8 @@ const useHome = () => {
     businessUnit: businessUnitSigla,
     staffPortalId,
   });
+
+  const { optionsHeader } = mainNavigation(optionsCards);
 
   useEffect(() => {
     if (appData.businessUnit.publicCode) {
@@ -70,6 +73,7 @@ const useHome = () => {
     screenTabletHeader,
     hasMultipleBusinessUnits,
     dataExists,
+    optionsHeader,
     setCollapse,
     handleLogoClick,
   };

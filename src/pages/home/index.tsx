@@ -2,7 +2,7 @@ import { useHome } from "@hooks/useHome";
 import { ICardData } from "@ptypes/home/ICardData";
 import { HomeUI } from "./interface";
 
-function Home() {
+const Home = () => {
   const {
     businessUnitChangeRef,
     businessUnitsToTheStaff,
@@ -18,6 +18,7 @@ function Home() {
     screenTabletHeader,
     hasMultipleBusinessUnits,
     dataExists,
+    optionsHeader,
     setCollapse,
     handleLogoClick,
   } = useHome();
@@ -40,8 +41,9 @@ function Home() {
       screenTabletHeader={screenTabletHeader}
       hasMultipleBusinessUnits={hasMultipleBusinessUnits}
       dataExists={dataExists}
+      optionsHeader={optionsHeader}
     />
   );
-}
+};
 
 export { Home };

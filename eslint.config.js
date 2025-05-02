@@ -42,6 +42,8 @@ export default tseslint.config({
     "@typescript-eslint/no-unsafe-return": "off",
     "react-hooks/rules-of-hooks": "off",
     "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/no-unnecessary-type-assertion": "off",
+    "@typescript-eslint/prefer-nullish-coalescing": "off",
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },

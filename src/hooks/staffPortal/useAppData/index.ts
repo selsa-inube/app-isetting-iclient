@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { useAuthRedirect } from "@hooks/authentication/useAuthRedirect";
 import { IUseAppData } from "@ptypes/hooks/staffPortal/IUseAppData";
 import { useBusinessManagers } from "../useBusinessManagers";

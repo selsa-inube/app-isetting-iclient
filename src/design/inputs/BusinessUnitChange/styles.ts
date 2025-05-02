@@ -3,9 +3,11 @@ import { inube } from "@inubekit/inubekit";
 import { tokens } from "@design/tokens";
 
 const StyledContainer = styled.div`
-  box-shadow: 2px 2px 3px 2px ${inube.palette.neutral.N30};
+  box-shadow: ${({ theme }) =>
+    `2px 2px 3px 2px ${theme?.palette?.neutral.N30 ?? inube.palette.neutral.N30}`};
   border-radius: ${tokens.spacing.s100};
-  background-color: ${inube.palette.neutral.N0};
+  background-color: ${({ theme }) =>
+    theme?.palette?.neutral.N0 ?? inube.palette.neutral.N0};
   margin-left: 10px;
   z-index: 3;
 `;
@@ -27,7 +29,8 @@ const StyledLi = styled.li`
   justify-content: space-between;
 
   &:hover {
-    background-color: ${inube.palette.neutral.N30};
+    background-color: ${({ theme }) =>
+      theme?.palette?.neutral.N30 ?? inube.palette.neutral.N30};
     border-radius: ${tokens.spacing.s100};
   }
 `;
