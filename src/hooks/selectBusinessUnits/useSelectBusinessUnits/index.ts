@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useMediaQueries } from "@inubekit/inubekit";
 import { useValidateBusinessUnities } from "@hooks/selectBusinessUnits/useValidateBusinessUnities";
-import { IUseSelectBusinessUnits } from "@src/types/hooks/staffPortal/IUseSelectBusinessUnits";
+import { IUseSelectBusinessUnits } from "@ptypes/hooks/staffPortal/IUseSelectBusinessUnits";
 
 const useSelectBusinessUnits = (props: IUseSelectBusinessUnits) => {
   const { appData, setBusinessUnitsToTheStaff } = props;

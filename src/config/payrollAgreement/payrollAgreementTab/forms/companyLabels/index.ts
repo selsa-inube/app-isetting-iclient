@@ -1,0 +1,27 @@
+const companyLabels = {
+  companySelected: "Empresa con convenio",
+  companyName: "Razón social",
+  companyTypeIdent: "Tipo de documento",
+  companyNumberIdent: "Número de documento",
+  companyVerifDigit: "Dígito de verificación",
+  companyDateIdent: "Fecha de expedición de identificación",
+  companyNameCommercial: "Nombre comercial o alias",
+  companyComplement: "Complemento",
+  companyCity: "Ciudad",
+  companyAddressRes: "Nomenclatura",
+  companyCountry: "País de residencia fiscal",
+  companyCountryIdent: "País emisor del documento",
+  labelbutton: "Siguiente",
+  placeholderCompanyName: "Nombre de la empresa",
+  placeholderCompanySelected: "Seleccione de la lista",
+  placeholderCompanyTypeIdent: "Seleccione de la lista",
+  placeholdercompanyNameCommerc: "Nombre comercial",
+  placeholderCompanyCountry: "Seleccione de la lista",
+  placeholderCompanyNumberIdent: "Número de identificacíon",
+  placeholderCompanyCountryIdent: "Seleccione de la lista",
+  placeholderCompanyAddressRes: "Ej: Calle 10 #2a - 34",
+  placeholderCompanyComplement: "Ej: Edificio rojo, oficina 202",
+  placeholderCompanyCity: "Nombre de la ciudad",
+};
+
+export { companyLabels };

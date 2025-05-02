@@ -9,8 +9,10 @@ const StyledRadioBusinessUnit = styled.label`
   & div {
     box-sizing: border-box;
     max-height: 58px;
-    box-shadow: 1px 2px 2px 1px ${inube.palette.neutral.N30};
-    border: 1px solid ${inube.palette.neutral.N30};
+    box-shadow: ${({ theme }) =>
+      `1px 2px 2px 1px ${theme?.palette?.neutral.N30 ?? inube.palette.neutral.N30}`};
+    border: ${({ theme }) =>
+      `1px solid ${theme?.palette?.neutral.N30 ?? inube.palette.neutral.N30}`};
     cursor: pointer;
   }
 `;

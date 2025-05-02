@@ -3,7 +3,8 @@ import { BrowserRouter } from "react-router-dom";
 import { Meta, StoryFn } from "@storybook/react";
 
 import { tokens } from "@design/tokens";
-import { BoxContainer, IBoxContainer } from "..";
+import { IBoxContainer } from "@ptypes/design/IBoxContainer";
+import { BoxContainer } from "..";
 
 const meta: Meta<typeof BoxContainer> = {
   title: "layout/BoxContainer",

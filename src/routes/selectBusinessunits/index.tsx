@@ -7,7 +7,7 @@ import { BusinessUnits } from "@pages/selectBusinessUnits/outlets/businessUnit";
 import { CheckingCredentials } from "@pages/login/checkingCredentials";
 import { LoadingApp } from "@design/feedback/loadingApp";
 import { NotBusinessUnit } from "@pages/errors/notBusinessUnit";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 
 const SelectBusinessUnitsRoutes = () => {
   const { businessUnitsToTheStaff } = useContext(AuthAndPortalData);

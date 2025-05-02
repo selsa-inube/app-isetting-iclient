@@ -5,7 +5,7 @@ const mainCards: ICardData[] = [
   {
     publicCode: "Nomina de convenio",
     icon: <MdOutlineHandshake />,
-    url: "/",
+    url: "/payroll-agreement",
   },
 ];
 

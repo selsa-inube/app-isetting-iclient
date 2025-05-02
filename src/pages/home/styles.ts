@@ -7,36 +7,12 @@ interface IStyledCollapseIcon {
   $isTablet: boolean;
 }
 
-interface IStyledContainerSection {
-  $isMobile: boolean;
-}
-
 interface IStyledTitle {
-  $isTablet: boolean;
-}
-interface IStyledContainerCards {
   $isTablet: boolean;
 }
 interface IStyledFooter {
   $isMobile: boolean;
 }
-
-const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding-bottom: ${tokens.spacing.s500};
-  height: 100vh;
-  overflow-y: auto;
-`;
-const StyledContainerSection = styled.div<IStyledContainerSection>`
-  display: flex;
-  flex-direction: column;
-  padding: ${({ $isMobile }) =>
-    $isMobile ? `${tokens.spacing.s200}` : `${tokens.spacing.s0}`};
-  gap: ${({ $isMobile }) =>
-    $isMobile ? `${tokens.spacing.s300}` : `${tokens.spacing.s0}`};
-`;
 
 const StyledHeaderContainer = styled.div`
   position: relative;
@@ -68,18 +44,6 @@ const StyledTitle = styled.div<IStyledTitle>`
   align-self: ${({ $isTablet }) => $isTablet && "stretch"};
 `;
 
-const StyledContainerCards = styled.div<IStyledContainerCards>`
-  display: flex;
-  box-sizing: border-box;
-  padding: ${({ $isTablet }) =>
-    $isTablet
-      ? `${tokens.spacing.s0}`
-      : `${tokens.spacing.s0} ${tokens.spacing.s1400} ${tokens.spacing.s400} 170px`};
-  justify-content: ${({ $isTablet }) => ($isTablet ? "center" : "flex-start")};
-  flex-wrap: wrap;
-  gap: ${tokens.spacing.s400};
-`;
-
 const StyledFooter = styled.footer<IStyledFooter>`
   display: flex;
   margin-top: auto;
@@ -103,14 +67,11 @@ const StyledCollapse = styled.div`
 `;
 
 export {
-  StyledContainer,
   StyledHeaderContainer,
   StyledTitle,
   StyledContentImg,
   StyledLogo,
-  StyledContainerCards,
   StyledFooter,
-  StyledContainerSection,
   StyledCollapseIcon,
   StyledCollapse,
 };

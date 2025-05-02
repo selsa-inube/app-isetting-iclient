@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useMediaQueries } from "@inubekit/inubekit";
 
 import { IBusinessUnitsPortalStaff } from "@ptypes/staffPortal/IBusinessUnitsPortalStaff";
-import { AuthAndPortalData } from "@context/authAndPortalDataProvider";
+import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { IBusinessUnitstate } from "@ptypes/selectBusinessUnits/IBusinessUnitstate";
 import { IUseBusinessUnits } from "@ptypes/selectBusinessUnits/IUseBusinessUnits";
 
