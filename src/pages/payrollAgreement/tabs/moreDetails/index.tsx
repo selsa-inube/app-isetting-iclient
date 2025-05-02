@@ -7,10 +7,10 @@ import { BoxContainer } from "@design/layout/boxContainer";
 import { ModalWrapper } from "@design/modals/modalWrapper";
 import { IMoreDetails } from "@ptypes/payrollAgreement/requestInProgTab/IMoreDetails";
 import { useThemeData } from "@utils/theme";
+import { ILabel } from "@ptypes/ILabel";
 import { useMoreDetails } from "@hooks/payrollAgreement/useMoreDetails";
 import { OrdinaryPaymentCycles } from "./tabs/ordinaryPaymentCycles";
 import { ExtraordinaryPaymentCycles } from "./tabs/extraordinaryPaymentCycles";
-import { ILabel } from "@src/types/ILabel";
 
 const MoreDetails = (props: IMoreDetails) => {
   const theme = useThemeData();
@@ -59,6 +59,10 @@ const MoreDetails = (props: IMoreDetails) => {
   });
 
   const isField = (field: { id: string }) => data[field.id as keyof ILabel];
+
+  const filteredFieldDetails = labelsDetails.filter((field) =>
+    isField({ id: field.id }),
+  );
 
   return (
     <ModalWrapper
@@ -111,36 +115,31 @@ const MoreDetails = (props: IMoreDetails) => {
               : `${tokens.spacing.s0} ${tokens.spacing.s0} ${tokens.spacing.s075}`
           }
         >
-          {labelsDetails.map(
-            (field, id) =>
-              isField({ id: field.id }) && (
-                <BoxContainer
-                  key={id}
-                  direction="column"
-                  width={isMobile ? "100%" : "304px"}
-                  minHeight="52px"
-                  borderRadius={tokens.spacing.s100}
-                  padding={`${tokens.spacing.s075} ${tokens.spacing.s200}`}
-                  boxSizing="border-box"
-                  backgroundColor={
-                    theme
-                      ? theme?.palette?.neutral?.N10
-                      : inube.palette.neutral.N10
-                  }
-                >
-                  <Text size="medium" type="label" weight="bold">
-                    {field.titleName}
-                  </Text>
-                  <Text
-                    size="medium"
-                    appearance={ComponentAppearance.GRAY}
-                    ellipsis
-                  >
-                    {data[field.id]}
-                  </Text>
-                </BoxContainer>
-              ),
-          )}
+          {filteredFieldDetails.map((field, id) => (
+            <BoxContainer
+              key={id}
+              direction="column"
+              width={isMobile ? "100%" : "304px"}
+              minHeight="52px"
+              borderRadius={tokens.spacing.s100}
+              padding={`${tokens.spacing.s075} ${tokens.spacing.s200}`}
+              boxSizing="border-box"
+              backgroundColor={
+                theme ? theme?.palette?.neutral?.N10 : inube.palette.neutral.N10
+              }
+            >
+              <Text size="medium" type="label" weight="bold">
+                {field.titleName}
+              </Text>
+              <Text
+                size="medium"
+                appearance={ComponentAppearance.GRAY}
+                ellipsis
+              >
+                {data[field.id]}
+              </Text>
+            </BoxContainer>
+          ))}
         </Grid>
         <Stack
           direction="column"
