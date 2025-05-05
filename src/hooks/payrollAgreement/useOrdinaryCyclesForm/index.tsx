@@ -37,7 +37,7 @@ const useOrdinaryCyclesForm = (props: IUseOrdinaryCyclesForm) => {
       nameCycle: validationRules.string.required(validationMessages.required),
       periodicity: validationRules.string.required(validationMessages.required),
       payday: validationRules.string.required(validationMessages.required),
-      numberDaysUntilCut: validationRules.string.required(
+      numberDaysUntilCut: validationRules.number.required(
         validationMessages.required,
       ),
     });
@@ -51,7 +51,7 @@ const useOrdinaryCyclesForm = (props: IUseOrdinaryCyclesForm) => {
     nameCycle: "",
     periodicity: "",
     payday: "",
-    numberDaysUntilCut: "",
+    numberDaysUntilCut: 0,
   };
 
   const formik = useFormik({

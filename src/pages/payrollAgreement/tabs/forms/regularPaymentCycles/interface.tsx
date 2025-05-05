@@ -1,4 +1,4 @@
-import { MdInfoOutline, MdOutlineAdd } from "react-icons/md";
+import { MdOutlineAdd } from "react-icons/md";
 import { Button, inube, Stack } from "@inubekit/inubekit";
 import { tokens } from "@design/tokens";
 import { Table } from "@design/data/table";
@@ -147,9 +147,7 @@ const RegularPaymentCyclesFormUI = (props: IRegularPaymentCyclesFormUI) => {
           title={infoModal.title}
           description={infoModal.description}
           actionText={infoModal.actionText}
-          withIcon
           withCancelButton={false}
-          icon={<MdInfoOutline />}
           appearance={ComponentAppearance.PRIMARY}
           onCloseModal={onToggleInfoModal}
           onClick={onToggleInfoModal}

@@ -12,6 +12,7 @@ import {
 } from "@inubekit/inubekit";
 import { ITableUI } from "@ptypes/design/ITableUI";
 import { ComponentAppearance } from "@enum/appearances";
+import { getAlignment } from "@utils/getAlignment/index.";
 import { WidthColmnsData } from "./widthColumns";
 import { ShowActionTitle } from "./showActionTitle";
 import { ShowAction } from "./showAction";
@@ -94,7 +95,7 @@ const TableUI = (props: ITableUI) => {
                       {TitleColumns.map((title, index) => (
                         <Td
                           key={`${index}-${entry[title.id]}`}
-                          align={entry.action ? "center" : "left"}
+                          align={getAlignment(title.id, entry[title.id])}
                           type="custom"
                         >
                           <Text size="small" ellipsis={true}>

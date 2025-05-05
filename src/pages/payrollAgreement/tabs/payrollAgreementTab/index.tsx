@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { usePayrollAgreementTab } from "@hooks/payrollAgreement/usePayrollAgreementTab";
 import { AuthAndPortalData } from "@context/authAndPortalDataProvider/authAndPortalData";
 import { IEntry } from "@ptypes/design/table/IEntry";
+import { usePageLength } from "@hooks/usePageLength";
 import { PayrollAgreementTabUI } from "./interface";
 
 const PayrollAgreementTab = () => {
@@ -19,6 +20,8 @@ const PayrollAgreementTab = () => {
     bussinesUnits: appData.businessUnit.publicCode,
   });
 
+  const pageLength = usePageLength();
+
   return (
     <PayrollAgreementTabUI
       onSearchPayrollAgreement={handleSearchPayrollAgreement}
@@ -28,6 +31,7 @@ const PayrollAgreementTab = () => {
       setEntryDeleted={setEntryDeleted}
       smallScreen={smallScreen}
       columnWidths={columnWidths}
+      pageLength={pageLength}
     />
   );
 };

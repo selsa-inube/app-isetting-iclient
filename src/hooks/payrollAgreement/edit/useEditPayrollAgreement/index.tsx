@@ -39,7 +39,7 @@ const useEditPayrollAgreement = (props: IUseEditPayrollAgreement) => {
         nameCycle: entry.regularPaymentCycleName,
         periodicity: entry.schedule,
         payday: entry.paymentDay,
-        numberDaysUntilCut: String(entry.numberOfDaysBeforePaymentToBill),
+        numberDaysUntilCut: Number(entry.numberOfDaysBeforePaymentToBill),
       }));
     } else {
       return [];
@@ -57,7 +57,7 @@ const useEditPayrollAgreement = (props: IUseEditPayrollAgreement) => {
                 nameCycle: entry.abbreviatedName,
                 typePayment: specialBenefitPayment[0],
                 payday: entry.paymentDay,
-                numberDaysUntilCut: String(
+                numberDaysUntilCut: Number(
                   entry.numberOfDaysBeforePaymentToBill,
                 ),
               };
@@ -74,7 +74,7 @@ const useEditPayrollAgreement = (props: IUseEditPayrollAgreement) => {
                 nameCycle: entry.abbreviatedName,
                 typePayment: severancePay[0],
                 payday: entry.paymentDay,
-                numberDaysUntilCut: String(
+                numberDaysUntilCut: Number(
                   entry.numberOfDaysBeforePaymentToBill,
                 ),
               };

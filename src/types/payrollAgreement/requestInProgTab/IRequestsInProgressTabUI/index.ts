@@ -6,6 +6,7 @@ interface IRequestsInProgressTabUI {
   searchrequestProgress: string;
   smallScreen: boolean;
   columnWidths: number[];
+  pageLength: number;
   setEntryCanceled: (value: string | number) => void;
   onSearchrequestProgress: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

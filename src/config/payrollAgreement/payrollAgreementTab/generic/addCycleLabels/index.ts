@@ -11,5 +11,6 @@ const addCycleLabels = {
   placeholderNumberDaysUntilCut: "Selecciona de la lista",
   placeholderMonth: "Mes",
   placeholderDay: "Día",
+  maxLengthNameCycle: 60,
 };
 export { addCycleLabels };

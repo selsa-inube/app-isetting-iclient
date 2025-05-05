@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from "axios";
 import { enviroment, fetchTimeoutServices } from "@config/environment";
 
 const credicarAxiosInstance: AxiosInstance = axios.create({
-  baseURL: enviroment.ISETTING_CREDICAR_QUERY_PROCESS_SERVICE,
+  baseURL: enviroment.ISETTING_CLIENT_QUERY_PROCESS_SERVICE,
   timeout: fetchTimeoutServices,
   headers: {
     "Content-type": "application/json; charset=UTF-8",

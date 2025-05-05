@@ -6,6 +6,7 @@ interface IpayrollAgreementTabUI {
   searchPayrollAgreement: string;
   smallScreen: boolean;
   columnWidths: number[];
+  pageLength: number;
   setEntryDeleted: (id: string | number) => void;
   onSearchPayrollAgreement: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

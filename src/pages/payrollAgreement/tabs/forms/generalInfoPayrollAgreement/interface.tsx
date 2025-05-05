@@ -131,6 +131,8 @@ const GeneralInformationPayrollFormUI = (
                     onBlur={formik.handleBlur}
                     status={getFieldState(formik, "abbreviatedName")}
                     message={formik.errors.abbreviatedName}
+                    counter
+                    maxLength={generalInfLabels.maxLengthNamePayroll}
                     fullwidth
                   />
                 </StyledRow>
@@ -239,9 +241,7 @@ const GeneralInformationPayrollFormUI = (
           title={infoModal.title}
           description={infoModal.description}
           actionText={infoModal.actionText}
-          withIcon
           withCancelButton={false}
-          icon={<MdInfoOutline />}
           appearance={ComponentAppearance.PRIMARY}
           onCloseModal={onToggleInfoModalModal}
           onClick={onToggleInfoModalModal}
