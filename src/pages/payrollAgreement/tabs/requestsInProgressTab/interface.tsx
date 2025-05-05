@@ -17,6 +17,7 @@ const RequestsInProgressTabUI = (props: IRequestsInProgressTabUI) => {
     loading,
     smallScreen,
     columnWidths,
+    pageLength,
     setEntryCanceled,
     onSearchrequestProgress,
   } = props;
@@ -77,7 +78,7 @@ const RequestsInProgressTabUI = (props: IRequestsInProgressTabUI) => {
             filter={searchrequestProgress}
             isLoading={loading}
             columnWidths={columnWidths}
-            pageLength={8}
+            pageLength={pageLength}
           />
         </Stack>
       </Stack>

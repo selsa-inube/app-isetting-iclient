@@ -21,6 +21,7 @@ const PayrollAgreementTabUI = (props: IpayrollAgreementTabUI) => {
     loading,
     smallScreen,
     columnWidths,
+    pageLength,
     setEntryDeleted,
     onSearchPayrollAgreement,
   } = props;
@@ -99,7 +100,7 @@ const PayrollAgreementTabUI = (props: IpayrollAgreementTabUI) => {
             filter={searchPayrollAgreement}
             isLoading={loading}
             columnWidths={columnWidths}
-            pageLength={8}
+            pageLength={pageLength}
             emptyDataMessage={payrollTabLabels.emptyDataMessage}
           />
         </Stack>

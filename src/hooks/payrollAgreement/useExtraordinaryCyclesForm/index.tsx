@@ -57,7 +57,7 @@ const useExtraordinaryCyclesForm = (props: IUseExtraordinaryCyclesForm) => {
     typePayment: "",
     day: "",
     month: "",
-    numberDaysUntilCut: "",
+    numberDaysUntilCut: 0,
   };
 
   const formik = useFormik({
