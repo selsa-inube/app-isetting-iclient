@@ -99,7 +99,7 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
                     status={getFieldState(formik, "companyName")}
                     message={formik.errors.companyName}
                     counter
-                    maxLength={100}
+                    maxLength={companyLabels.maxLengthCompanyName}
                     fullwidth
                   />
                   <Stack
@@ -123,7 +123,7 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
                       status={getFieldState(formik, "companyNameCommercial")}
                       message={formik.errors.companyNameCommercial}
                       counter
-                      maxLength={30}
+                      maxLength={companyLabels.maxLengthcompanyNameCom}
                       fullwidth
                     />
                     <Select
@@ -247,7 +247,7 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
                           status={getFieldState(formik, "companyComplement")}
                           message={formik.errors.companyComplement}
                           counter
-                          maxLength={30}
+                          maxLength={companyLabels.maxLengthcompanyComplem}
                           fullwidth
                         />
                       </Stack>

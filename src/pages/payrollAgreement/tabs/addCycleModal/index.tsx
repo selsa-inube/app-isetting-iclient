@@ -70,7 +70,7 @@ const AddCycleModal = (props: IAddCycleModal) => {
           status={getFieldState(formik, "nameCycle")}
           message={formik.errors.nameCycle}
           counter
-          maxLength={60}
+          maxLength={addCycleLabels.maxLengthNameCycle}
           fullwidth
         />
         {isOrdinary && (

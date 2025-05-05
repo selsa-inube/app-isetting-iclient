@@ -132,7 +132,7 @@ const GeneralInformationPayrollFormUI = (
                     status={getFieldState(formik, "abbreviatedName")}
                     message={formik.errors.abbreviatedName}
                     counter
-                    maxLength={60}
+                    maxLength={generalInfLabels.maxLengthNamePayroll}
                     fullwidth
                   />
                 </StyledRow>

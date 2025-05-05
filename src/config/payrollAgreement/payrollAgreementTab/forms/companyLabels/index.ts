@@ -22,6 +22,9 @@ const companyLabels = {
   placeholderCompanyAddressRes: "Ej: Calle 10 #2a - 34",
   placeholderCompanyComplement: "Ej: Edificio rojo, oficina 202",
   placeholderCompanyCity: "Nombre de la ciudad",
+  maxLengthCompanyName: 100,
+  maxLengthcompanyNameCom: 30,
+  maxLengthcompanyComplem: 30,
 };
 
 export { companyLabels };
