@@ -98,6 +98,8 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
                     onBlur={formik.handleBlur}
                     status={getFieldState(formik, "companyName")}
                     message={formik.errors.companyName}
+                    counter
+                    maxLength={100}
                     fullwidth
                   />
                   <Stack
@@ -120,6 +122,8 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
                       onBlur={formik.handleBlur}
                       status={getFieldState(formik, "companyNameCommercial")}
                       message={formik.errors.companyNameCommercial}
+                      counter
+                      maxLength={30}
                       fullwidth
                     />
                     <Select
@@ -242,6 +246,8 @@ const CompanyFormUI = (props: ICompanyFormUI) => {
                           onBlur={formik.handleBlur}
                           status={getFieldState(formik, "companyComplement")}
                           message={formik.errors.companyComplement}
+                          counter
+                          maxLength={30}
                           fullwidth
                         />
                       </Stack>

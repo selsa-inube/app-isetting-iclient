@@ -1,8 +1,8 @@
 import { AxiosRequestConfig } from "axios";
 import { getWithRetries } from "@services/core/getWithRetries";
 import { ILegalPerson } from "@ptypes/payrollAgreement/payrollAgreementTab/ILegalPerson";
-import { queryProcessAxiosInstance } from "@api/isettingProcess/index.ts";
-import { mapLegalPersonsToEntities } from "./mappers/mapLegalPersonsToEntities/index.tsx";
+import { credicarAxiosInstance } from "@api/isettingCredicar";
+import { mapLegalPersonsToEntities } from "./mappers/mapLegalPersonsToEntities";
 
 const getLegalPersonsData = async (
   bussinesUnits: string,
@@ -14,7 +14,7 @@ const getLegalPersonsData = async (
     },
   };
   const data: ILegalPerson[] = await getWithRetries<ILegalPerson[]>(
-    queryProcessAxiosInstance,
+    credicarAxiosInstance,
     `/legal-persons`,
     config,
   );

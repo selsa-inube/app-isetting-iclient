@@ -69,6 +69,8 @@ const AddCycleModal = (props: IAddCycleModal) => {
           onBlur={formik.handleBlur}
           status={getFieldState(formik, "nameCycle")}
           message={formik.errors.nameCycle}
+          counter
+          maxLength={60}
           fullwidth
         />
         {isOrdinary && (

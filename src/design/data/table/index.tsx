@@ -24,7 +24,7 @@ const Table = (props: ITable) => {
     filter = "",
     isLoading,
     mobileTitle,
-    pageLength = 4,
+    pageLength = 10,
     breakpoints,
     widthPercentageTotalColumns,
     columnWidths,

@@ -1,7 +1,7 @@
 interface IExtraordinaryCyclesEntry {
   nameCycle: string;
   typePayment: string;
-  numberDaysUntilCut: string;
+  numberDaysUntilCut: number;
   day?: string;
   month?: string;
   payday?: string;
